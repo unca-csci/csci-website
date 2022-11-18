@@ -11,41 +11,30 @@ body * {
     box-sizing: border-box;
 }
 
-h1, h2 {
-    font-family: 'Poppins', sans-serif;
-}
-
-main h1 {
-    /* margin: 0px; */
-    text-transform: uppercase;
-    font-size: 2em;
-}
-header h1, header h2 {
-    font-weight: 300;
-    margin: 0;
-}
-header h1 {
-    font-size: 1.6em;
-}
-header h2 {
-    font-size: 1em;
-}
-
-h2 {
-    font-weight: 300;
-}
-
 header {
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    top: 0;
     background-color: rgb(237, 237, 14);
-    min-height: 120px;
+    height: 120px;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     padding-bottom: 20px;
+    padding-left: 10vw;
+    padding-right: 10vw;
 }
-/* nav {
-    align-self: flex-end;
-} */
+
+header h1, header h2 {
+    font-size: 2em;
+    font-weight: 300;
+    margin: 0;
+}
+
+header h2 {
+    font-size: 1em;
+}
 
 nav ul {
     list-style: none;
@@ -66,12 +55,26 @@ nav a, nav a:link, nav a:hover, nav a:active {
 nav a:hover {
     color: #444;
     border-bottom: solid 2px black;
-
 }
 
-header {
-    padding-left: 10vw;
-    padding-right: 10vw;
+
+main {
+    margin-top: 120px;
+}
+
+main h1 {
+    /* margin: 0px; */
+    text-transform: uppercase;
+    font-size: 2em;
+}
+
+h2 {
+    font-weight: 300;
+}
+
+
+h1, h2 {
+    font-family: 'Poppins', sans-serif;
 }
 
 
@@ -96,4 +99,78 @@ main {
     /* border: solid 3px palevioletred; */
     position: relative;
     overflow: hidden;
+}
+
+
+.mobile {
+    display: none;
+}
+
+@media screen and (max-width: 1200px) {
+    header {
+        padding: 1vh 3vw;
+    }
+    main {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+@media screen and (max-width: 900px) {
+    header {
+        padding: 1vh 3vw;
+        height: 70px;
+        align-items: center;
+    }
+    header h1, header h2 {
+        font-size: 1.4em;
+        font-weight: 400;
+    }
+    header h2 {
+        display: none;
+    }
+    .mobile {
+        display: block;
+        font-size: 20px;
+        margin-top: -3px;
+    }
+    main {
+        margin-top: 90px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .slide {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+    nav ul {
+        height: 0px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 100vw;
+        top: 70px;
+        left: 0;
+        justify-content: flex-start;
+        background-color: rgb(237, 237, 14);
+        transition: height 0.2s ease-in;
+        padding: 0;
+    }
+
+    nav.show ul {
+        height: 256px;
+    }
+    nav li {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        padding: 0px 3vw;
+    }
+    nav li a {
+        width: 100%;
+    } 
+    nav li a:hover {
+        border: solid 2px transparent;
+        font-weight: 600;
+    }
 }

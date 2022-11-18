@@ -20,3 +20,9 @@
     padding-left: 5em;
     padding-right: 5em;
 }
+
+@media screen and (max-width: 900px) {
+    .slides-container {
+        scroll-behavior: auto;
+    }
+}

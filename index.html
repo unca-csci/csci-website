@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="css/slides.css">
     <link rel="stylesheet" href="css/areas.css">
     <link rel="stylesheet" href="css/main.css">
@@ -21,29 +22,32 @@
         <nav>
             <ul>
                 <li>
-                    <a href="#" onclick="showSection('main.html', 0)">Home</a>
+                    <a href="#main">Home</a>
                 </li>
                 <li>
-                    <a href="#" onclick="showSection('news.html', 1)">News</a>
+                    <a href="#news">News</a>
                 </li>
                 <li>
-                    <a href="#" onclick="showSection('areas.html', 2)">Areas</a>
+                    <a href="#areas">Areas</a>
                 </li>
                 <li>
-                    <a href="#" onclick="showSection('curriculum.html', 3)">Curriculum</a>
+                    <a href="#curriculum">Curriculum</a>
                 </li>
                 <li>
-                    <a href="#" onclick="showSection('people.html', 4)">People</a>
+                    <a href="#people">People</a>
                 </li>
                 <li>
-                    <a href="#" onclick="showSection('initiatives.html', 5)">Initiatives</a>
+                    <a href="#for-students">For Students</a>
                 </li>
             </ul>
             </ul>
         </nav>
+        <a id="burger" class="mobile" href="#" onclick="toggleMenu(event)">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
     </header>
 
-    
+    <!-- dynamic content goes here -->
     <main>
         <div class="slides-container"></div>
     </main>

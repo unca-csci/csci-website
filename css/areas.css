@@ -2,11 +2,10 @@
 #areas {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 20px;
-    row-gap: 20px;
+    column-gap: 40px;
+    row-gap: 40px;
 }
 #areas section {
-    /* border: solid 1px #000; */
     min-height: 270px;
     background-repeat: no-repeat;
     background-position: center center;
@@ -30,6 +29,24 @@
 .vr {
     background-image: url(../images/vr.jpg);
 }
+.swe {
+    background-image: url(../images/swe.jpg);
+}
+.games {
+    background-image: url(../images/gaming.jpg);
+}
+.robotics {
+    background-image: url(../images/robotics.jpg);
+}
+.ai {
+    background-image: url(../images/ai-todo-license.jpg);
+}
+.theory {
+    background-image: url(../images/turing.png);
+}
+.cyber {
+    background-image: url(../images/cyber-1.png);
+}
 .overlay-box {
     padding: 10px;
     display: flex;
@@ -41,13 +58,22 @@
     background-color: #00000055;
     transition: all 0.8s ease-in;
 }
-/* #areas section:hover {
-    background-size: 150%;
-} */
+
 #areas section:hover .overlay-box {
     background-color: #00000000;
 }
-/* #areas section:hover h2 {
-    color: black;
-    text-shadow: 1px 1px 1px white;
-} */
+
+
+@media screen and (max-width: 1000px) {
+
+    #areas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    #areas {
+        grid-template-columns: 1fr;
+    }
+}
