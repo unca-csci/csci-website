@@ -1,4 +1,3 @@
-
 .areas {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -76,22 +75,36 @@
 }
 
 #lightbox {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 70vw;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.97);
+    min-height: 100vh;
     position: fixed;
     top: 0;
     left: -100vw;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
     z-index: 200;
-    transition: all 0.3s ease-in;
-    padding: 20px;
+    background-color: rgba(50, 50, 50, 0.9);
+}
+
+#lightbox .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 65vw;
+    min-height: 100vh;
+    padding: 50px;
+    background-color: rgba(255, 255, 255);
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    transition: all 0.2s ease-in;
+    margin-left: -65vw;
 }
 
 #lightbox.show {
     left: 0;
+}
+
+#lightbox.show .content {
+    margin-left: 0vw;
 }
 
 #lightbox .close {
@@ -101,10 +114,25 @@
     border: none;
     font-size: 30px;
     cursor: pointer;
+    position: absolute;
+    left: 0;
+}
+#lightbox.show .close {
+    left: calc(65vw - 70px);
+    transition: all 0.2s ease-in;
 }
 
 
 @media screen and (max-width: 1000px) {
+    #lightbox .content {
+        margin-left: 0vw;
+        width: 100vw;
+    }
+
+    #lightbox.show .close {
+        left: calc(100vw - 70px);
+        transition: none;
+    }
 
     .areas {
         grid-template-columns: repeat(2, 1fr);

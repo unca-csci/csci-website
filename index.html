@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="css/slides.css">
     <link rel="stylesheet" href="css/areas.css">
+    <link rel="stylesheet" href="css/area-detail.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="main.js" defer></script>
     <title>UNCA CSCI Website Prototype</title>
@@ -50,9 +51,9 @@
     <!-- dynamic content goes here -->
     <main>
         <div class="slides-container"></div>
-        <section class="" id="lightbox">
-            <button class="close" onclick="hideLightbox()">
-                <i class="fas fa-times"></i>
+        <section class="" id="lightbox" onclick="hideLightbox(event)">
+            <button id="close" class="close" onclick="hideLightbox(event)">
+                <i id="close-icon" class="fas fa-times"></i>
             </button>
             <div class="content"></div>
         </section>
