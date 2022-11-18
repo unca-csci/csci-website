@@ -9,12 +9,26 @@ const showSection = (fileName, idx) => {
         .then(response => response.text())
         .then(html => {
             slideEl.innerHTML = html;
-            document.body.scrollTo(0, 0);
             window.scrollTo(0, 0);
             containerEl.scrollLeft = slideEl.clientWidth * idx;
             document.querySelector('nav').classList.remove('show');
         })
 };
+
+const showLightbox = fileName => {
+    const lightboxEl = document.querySelector('#lightbox');
+    fetch(`./templates/${fileName}`)
+        .then(response => response.text())
+        .then(html => {
+            lightboxEl.querySelector('.content').innerHTML = html;
+            lightboxEl.classList.add('show');
+        })
+}
+
+const hideLightbox = () => {
+    const lightboxEl = document.querySelector('#lightbox');
+    lightboxEl.classList.remove('show');
+}
 
 const initPage = () => {
     initNavigation();
@@ -69,7 +83,10 @@ initPage();
 window.setInterval(function () {
     if (window.location.hash != storedHash) {
         storedHash = window.location.hash;
+        console.log('UPDATE!!');
         showPage();
     }
 }, 100);
+
+window.onresize = showPage;
 

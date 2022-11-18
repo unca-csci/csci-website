@@ -1,27 +1,50 @@
 
-#areas {
+.areas {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 40px;
-    row-gap: 40px;
+    column-gap: 30px;
+    row-gap: 30px;
+    margin-top: 50px;
 }
-#areas section {
+.areas section {
     min-height: 270px;
     background-repeat: no-repeat;
     background-position: center center;
-    transition: all 0.8s ease-in;
     background-size: cover;
+    margin: 5px;
+    transition: all 0.2s ease-in;
+}
+.areas section .overlay-box {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #00000077;
+    transition: all 0.2s ease-in;
 }
 
-
-#areas section h2 {
+.areas section h2 {
     margin: 0;
     color: white;
     text-shadow: 1px 1px 1px #000;
     font-weight: 700;
     text-align: center;
-    transition: all 0.2s ease-in;
 }
+
+.areas section:hover {
+    margin: 0px;
+}
+
+.areas section:hover .overlay-box {
+    background-color: #00000000;
+}
+
+
+
+
 
 .hci {
     background-image: url(../images/hci.jpg);
@@ -47,33 +70,53 @@
 .cyber {
     background-image: url(../images/cyber-1.png);
 }
-.overlay-box {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background-color: #00000055;
-    transition: all 0.8s ease-in;
+.ds {
+    /* background-image: url(../images/ds-1.jpg); */
+    background-image: url(../images/ds-2.jpg);
 }
 
-#areas section:hover .overlay-box {
-    background-color: #00000000;
+#lightbox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    z-index: 200;
+    transition: all 0.3s ease-in;
+    padding: 20px;
+}
+
+#lightbox.show {
+    left: 0;
+}
+
+#lightbox .close {
+    align-self: flex-end;
+    margin: 10px 20px;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
 }
 
 
 @media screen and (max-width: 1000px) {
 
-    #areas {
+    .areas {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .areas section:hover {
+        margin: 5px;
     }
 }
 
 @media screen and (max-width: 600px) {
 
-    #areas {
+    .areas {
         grid-template-columns: 1fr;
     }
 }

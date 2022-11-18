@@ -16,7 +16,8 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    background-color: rgb(237, 237, 14);
+    /* background-color: rgb(237, 237, 14); */
+    background-color: #f6f63d;
     height: 120px;
     display: flex;
     align-items: flex-end;
@@ -106,9 +107,10 @@ main {
     display: none;
 }
 
+
 @media screen and (max-width: 1200px) {
     header {
-        padding: 1vh 3vw;
+        padding: 1vh 3vw 3vh 3vw;
     }
     main {
         padding-left: 0;
@@ -152,7 +154,8 @@ main {
         top: 70px;
         left: 0;
         justify-content: flex-start;
-        background-color: rgb(237, 237, 14);
+        /* background-color: rgb(237, 237, 14); */
+        background-color: #f6f63d;
         transition: height 0.2s ease-in;
         padding: 0;
     }
