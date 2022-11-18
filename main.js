@@ -1,12 +1,14 @@
-const showSection = (fileName, idx) => {
+const showSection = (fileName, idx, doAnimation=true) => {
     console.log(`#panel-${idx}`);
     const slideEl = document.querySelector(`#panel-${idx}`);
-    const mainEl = document.querySelector('.slides-container');
+    const containerEl = document.querySelector('.slides-container');
     fetch(`./templates/${fileName}`)
         .then(response => response.text())
         .then(html => {
             slideEl.innerHTML = html;
-            mainEl.scrollLeft = slideEl.clientWidth * idx;
+            if (doAnimation) {
+                containerEl.scrollLeft = slideEl.clientWidth * idx;
+            }
         })
 };
 
@@ -19,7 +21,8 @@ const initPanels = () => {
         `;
         containerEl.insertAdjacentHTML('beforeend', template);
     }
+    containerEl.scrollLeft = 0;
 }
 
 initPanels();
-showSection('main.html', 1);
+showSection('main.html', 0, false);
