@@ -1,0 +1,53 @@
+
+#areas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+}
+#areas section {
+    /* border: solid 1px #000; */
+    min-height: 270px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: all 0.8s ease-in;
+    background-size: cover;
+}
+
+
+#areas section h2 {
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 1px #000;
+    font-weight: 700;
+    text-align: center;
+    transition: all 0.2s ease-in;
+}
+
+.hci {
+    background-image: url(../images/hci.jpg);
+}
+.vr {
+    background-image: url(../images/vr.jpg);
+}
+.overlay-box {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #00000055;
+    transition: all 0.8s ease-in;
+}
+/* #areas section:hover {
+    background-size: 150%;
+} */
+#areas section:hover .overlay-box {
+    background-color: #00000000;
+}
+/* #areas section:hover h2 {
+    color: black;
+    text-shadow: 1px 1px 1px white;
+} */
