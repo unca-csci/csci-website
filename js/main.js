@@ -14,7 +14,11 @@ const showSection = (fileName, idx) => {
             slideEl.innerHTML = "";
             slideEl.insertAdjacentHTML('beforeend', html);
             //window.scrollTo(0, 0);
+            console.log(containerEl.scrollLeft, slideEl.clientWidth * idx);
             containerEl.scrollLeft = slideEl.clientWidth * idx;
+            setTimeout(() => {
+                console.log(containerEl.scrollLeft, slideEl.clientWidth * idx);
+            }, 1000);
             document.querySelector('nav').classList.remove('show');
 
             injectScriptIfExists(html, slideEl);
@@ -67,6 +71,7 @@ const initPage = () => {
 };
 
 const initNavigation = () => {
+    console.log("initNavigation");
     const containerEl = document.querySelector('.slides-container');
     const links = document.querySelectorAll('ul a');
     links.forEach((link, idx) => {
@@ -78,7 +83,7 @@ const initNavigation = () => {
         containerEl.insertAdjacentHTML('beforeend', template);
         // link.addEventListener('click', showSection);
     })
-    containerEl.scrollLeft = 0;
+    // containerEl.scrollLeft = 0;
 };
 
 const loadFirstPage = () => {
