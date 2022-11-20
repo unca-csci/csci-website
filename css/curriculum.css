@@ -13,23 +13,38 @@
     /* color: #777; */
     font-size: 0.95em;
 }
-
-.curriculum-nav ul {
-    justify-content: flex-start;
-    padding: 0;
-}
 .curriculum-nav {
     padding: 15px 0 20px 0;
     /* border-bottom: solid 2px black; */
 }
-.curriculum-nav ul a {
+
+.curriculum-nav ul {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.curriculum-nav li {
+    margin-right: 20px;
+}
+
+.curriculum-nav a, 
+.curriculum-nav a:link, 
+.curriculum-nav a:hover, 
+.curriculum-nav a:active {
+    color: black;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    border-bottom: solid 2px transparent;
     padding: 8px 28px;
     border-radius: 20px;
     background-color: #EEE;
-    font-weight: bold;
+    font-weight: 400;
     border: solid 2px transparent;
 }
-.curriculum-nav ul a:hover {
+.curriculum-nav a:hover {
+    color: #444;
     border: solid 2px black;
 }
 

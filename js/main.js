@@ -1,6 +1,6 @@
 let storedHash;
 let currentPanelIndex = 0;
-const pages = ['courses'];
+const pages = ['course-schedule'];
 // const pageMap = {
 //     'courses.html': `#panel-4`
 // };
@@ -13,7 +13,7 @@ const showSection = (fileName, idx) => {
         .then(html => {
             slideEl.innerHTML = "";
             slideEl.insertAdjacentHTML('beforeend', html);
-            window.scrollTo(0, 0);
+            //window.scrollTo(0, 0);
             containerEl.scrollLeft = slideEl.clientWidth * idx;
             document.querySelector('nav').classList.remove('show');
 

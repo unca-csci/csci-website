@@ -1,0 +1,47 @@
+#course-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 30px;
+}
+
+.courses header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px;
+}
+
+.courses select {
+    border: solid 1px #CCC;
+    border-radius: 4px;
+    margin-left: 40px;
+    padding: 10px 25px;
+    font-size: 1.5em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") white no-repeat 96% !important;
+}
+  
+.courses select::-ms-expand { display: none; }
+
+#course-list p {
+    margin: 0;
+}
+#course-list h2 {
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+.fa-circle-check {
+    color: rgb(21, 136, 21);
+}
+
+.fa-circle-xmark {
+    color: rgb(162, 28, 28);
+}
+
+strong {
+    font-weight: 500;
+}
