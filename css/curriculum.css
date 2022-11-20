@@ -10,8 +10,27 @@
     font-weight: 500;
 }
 .curriculum > section p, .curriculum li {
-    color: #777;
+    /* color: #777; */
     font-size: 0.95em;
+}
+
+.curriculum-nav ul {
+    justify-content: flex-start;
+    padding: 0;
+}
+.curriculum-nav {
+    padding: 15px 0 20px 0;
+    /* border-bottom: solid 2px black; */
+}
+.curriculum-nav ul a {
+    padding: 8px 28px;
+    border-radius: 20px;
+    background-color: #EEE;
+    font-weight: bold;
+    border: solid 2px transparent;
+}
+.curriculum-nav ul a:hover {
+    border: solid 2px black;
 }
 
 .curriculum > section {

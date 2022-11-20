@@ -1,19 +1,39 @@
 let storedHash;
-const pages = [];
+let currentPanelIndex = 0;
+const pages = ['courses'];
+// const pageMap = {
+//     'courses.html': `#panel-4`
+// };
 
 const showSection = (fileName, idx) => {
-    console.log(fileName);
     const slideEl = document.querySelector(`#panel-${idx}`);
     const containerEl = document.querySelector('.slides-container');
     fetch(`./templates/${fileName}`)
         .then(response => response.text())
         .then(html => {
-            slideEl.innerHTML = html;
+            slideEl.innerHTML = "";
+            slideEl.insertAdjacentHTML('beforeend', html);
             window.scrollTo(0, 0);
             containerEl.scrollLeft = slideEl.clientWidth * idx;
             document.querySelector('nav').classList.remove('show');
+
+            injectScriptIfExists(html, slideEl);
         })
 };
+
+const injectScriptIfExists = (html, containerEl) => {
+    const regex =  /<script[\s\S]*?>[\s\S]*?<\/script>/gi;
+    // const regex =  /"[\s\S]*?"\.js/gi;
+    const matches = html.match(regex);
+    if (matches && matches.length > 0) {
+        matches.forEach(match => {
+            let path = match.split("\"")[1];
+            var script = document.createElement('script');
+            script.setAttribute('src',path);
+            containerEl.appendChild(script);
+        })
+    }
+}
 
 const showLightbox = fileName => {
     const lightboxEl = document.querySelector('#lightbox');
@@ -73,12 +93,26 @@ const loadFirstPage = () => {
 }
 
 const showPage = () => {
+    if (storedHash === '') {
+        return;
+    }
+    const currentSlide = document.querySelector(`#panel-${currentPanelIndex}`);
+    currentSlide.innerHTML = "";
+    
     const fileName = storedHash.replace('#', '') + '.html';
-    document.querySelectorAll('ul a').forEach((el, idx) => {
+    let found = false;
+    document.querySelectorAll('.main-nav ul a').forEach((el, idx) => {
         if (el.href == window.location.href) {
+            found = true;
+            currentPanelIndex = idx;
+            console.log('in list', fileName, idx);
             showSection(fileName, idx);
         }
     })
+    if (!found) {
+        console.log('not in list', fileName, currentPanelIndex);
+        showSection(fileName, currentPanelIndex);
+    }
 };
 
 const toggleMenu = ev => {
