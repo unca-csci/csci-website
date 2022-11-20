@@ -13,15 +13,16 @@ const showSection = (fileName, idx) => {
         .then(html => {
             slideEl.innerHTML = "";
             slideEl.insertAdjacentHTML('beforeend', html);
-            //window.scrollTo(0, 0);
-            console.log(containerEl.scrollLeft, slideEl.clientWidth * idx);
-            containerEl.scrollLeft = slideEl.clientWidth * idx;
-            setTimeout(() => {
-                console.log(containerEl.scrollLeft, slideEl.clientWidth * idx);
-            }, 1000);
+            // //window.scrollTo(0, 0);
+            // console.log(containerEl.scrollLeft, slideEl.clientWidth * idx);
+            // containerEl.scrollLeft = slideEl.clientWidth * idx;
+            // setTimeout(() => {
+            //     console.log(containerEl.scrollLeft, slideEl.clientWidth * idx);
+            // }, 1000);
             document.querySelector('nav').classList.remove('show');
 
             injectScriptIfExists(html, slideEl);
+            setTimeout(setPosition, 30);
         })
 };
 
@@ -68,6 +69,12 @@ const hideLightbox = ev => {
 const initPage = () => {
     initNavigation();
     loadFirstPage();
+};
+
+const setPosition = () => {
+    const containerEl = document.querySelector('.slides-container');
+    const slideEl = document.querySelector(`#panel-${currentPanelIndex}`);
+    containerEl.scrollLeft = slideEl.clientWidth * currentPanelIndex;
 };
 
 const initNavigation = () => {
@@ -138,5 +145,5 @@ window.setInterval(function () {
     }
 }, 100);
 
-window.onresize = showPage;
+window.onresize = setPosition;
 
