@@ -1,5 +1,6 @@
 let storedHash;
 let currentPanelIndex = 0;
+let scrollPosition = 0;
 const pages = ['course-schedule'];
 // const pageMap = {
 //     'courses.html': `#panel-4`
@@ -11,18 +12,11 @@ const showSection = (fileName, idx) => {
     fetch(`./templates/${fileName}`)
         .then(response => response.text())
         .then(html => {
-            slideEl.innerHTML = "";
-            slideEl.insertAdjacentHTML('beforeend', html);
-            // //window.scrollTo(0, 0);
-            // console.log(containerEl.scrollLeft, slideEl.clientWidth * idx);
-            // containerEl.scrollLeft = slideEl.clientWidth * idx;
-            // setTimeout(() => {
-            //     console.log(containerEl.scrollLeft, slideEl.clientWidth * idx);
-            // }, 1000);
+            slideEl.innerHTML = html;
             document.querySelector('nav').classList.remove('show');
 
             injectScriptIfExists(html, slideEl);
-            setTimeout(setPosition, 30);
+            setPosition();
         })
 };
 
@@ -74,7 +68,16 @@ const initPage = () => {
 const setPosition = () => {
     const containerEl = document.querySelector('.slides-container');
     const slideEl = document.querySelector(`#panel-${currentPanelIndex}`);
-    containerEl.scrollLeft = slideEl.clientWidth * currentPanelIndex;
+    
+    // queue up:
+    window.scrollTo(0, 0);
+    containerEl.style.scrollBehavior = 'auto';
+    containerEl.scrollTo(scrollPosition, 0);
+    containerEl.style.scrollBehavior = 'smooth';
+
+    // scroll:
+    containerEl.scrollTo(slideEl.clientWidth * currentPanelIndex, 0);
+    scrollPosition = slideEl.clientWidth * currentPanelIndex;
 };
 
 const initNavigation = () => {
@@ -88,9 +91,7 @@ const initNavigation = () => {
             <section class='slide' id="panel-${idx}"></section>
         `;
         containerEl.insertAdjacentHTML('beforeend', template);
-        // link.addEventListener('click', showSection);
     })
-    // containerEl.scrollLeft = 0;
 };
 
 const loadFirstPage = () => {
@@ -109,7 +110,7 @@ const showPage = () => {
         return;
     }
     const currentSlide = document.querySelector(`#panel-${currentPanelIndex}`);
-    currentSlide.innerHTML = "";
+    // currentSlide.innerHTML = "";
     
     const fileName = storedHash.replace('#', '') + '.html';
     let found = false;
@@ -133,9 +134,6 @@ const toggleMenu = ev => {
 }
 
 initPage();
-
-// trigger page load:
-// document.querySelector(`#panel-0`).click();
 
 window.setInterval(function () {
     if (window.location.hash != storedHash) {
