@@ -1,0 +1,170 @@
+{
+    "CSCI 182": {
+        "code": "CSCI 182",
+        "title": "Intro to Programming: Media Applications",
+        "description": "Problem solving, algorithm development, and data and procedural abstraction with an emphasis on developing applications that interface with the senses. Includes a formal laboratory section using program development tools. Students may receive credit for only one course from CSCI 182, 183 and 185. Fall and Spring.",
+        "credit_hours": 3
+    },
+    "CSCI 183": {
+        "code": "CSCI 183",
+        "title": "Intro to Programming: Numerical Applications",
+        "description": "Problem solving, algorithm development, and data and procedural abstraction with an emphasis on developing scientific applications. Includes a formal laboratory section using program development tools. Students may receive credit for only one course from CSCI 182, 183 and 185. No credit given to students who have credit for CSCI 181. Fall and Spring.",
+        "credit_hours": 3
+    },
+    "CSCI 185": {
+        "code": "CSCI 185",
+        "title": "Intro Programming: Web Development",
+        "description": "Introduction to web page design and development. Topics include style sheets, dynamic content, scripting languages, and event handling. Students may receive credit for only one course from CSCI 182, 183 and 185. Fall and Spring.",
+        "credit_hours": 3
+    },
+    "CSCI 201": {
+        "code": "CSCI 201",
+        "title": "Intro to Object-Oriented Progr",
+        "description": "An introduction to problem solving, algorithm design, implementation, and testing using object-oriented programming principles. Emphasis is placed on event-driven programming methods, including creating and manipulating objects, classes, and using object-oriented tools such as the class debugger. Pre- or corequisite: CSCI 182, 183 or 185. Fall and Spring.",
+        "credit_hours": 3
+    },
+    "CSCI 202": {
+        "code": "CSCI 202",
+        "title": "Intro to Data Structures",
+        "description": "Data structures (lists, stacks, queues, binary trees, hash tables); searching andsorting algorithms; use of a modern, object-oriented programming language.Successful completion of this course with a grade of C or higher is required toprogress through the Computer Science major or minor. Prerequisite: CSCI 201.Fall and Spring.",
+        "credit_hours": 3
+    },
+    "CSCI 235": {
+        "code": "CSCI 235",
+        "title": "Systems I",
+        "description": "Fundamentals of computer systems for programmers. Computer organization; machine representation of data and programs; program performance and optimization; memory hierarchy and memory management. Prerequisite: one course from CSCI 201 or 202 with a grade of C or higher. Fall and Spring.",
+        "credit_hours": 3
+    },
+    "CSCI 280": {
+        "code": "CSCI 280",
+        "title": "Computer Science Seminar",
+        "description": "Professional development seminar. Exploration of career options including internships, industry, entrepreneurship, interdisciplinary opportunities, research and graduate school. Computer science in society, ethics and security. Interpersonal communication and soft skills for effective teamwork. Prerequisite: CSCI 202 with a grade of C or higher, or CSCI 201 with a grade of C or higher and permission of instructor. Fall and Spring.",
+        "credit_hours": 1
+    },
+    "CSCI 313": {
+        "code": "CSCI 313",
+        "title": "Virtual Reality",
+        "description": "Students practice techniques for creating immersive and interactive virtual reality environments, developing, presenting, defending, and improving their work based on formative faculty and peer feedback. Practical experience will be gained with tracking systems, head-mounted-displays, and 3D graphics. Alongside projects, students will complete readings and engage in discussions about virtual reality history and theory. Prerequisites: CSCI 202 or NM 251. Even years Spring.",
+        "credit_hours": 4
+    },
+    "CSCI 338": {
+        "code": "CSCI 338",
+        "title": "Software Engineering",
+        "description": "A project-oriented course in which students working in teams complete one or more projects encompassing software design and development. Students will develop their communication skills by writing project requirements, creating and evaluating prototypes, interfacing with end users, and developing and implementing test plans. Prerequisites: CSCI 202 with a grade of C or higher and CSCI 235. Spring.",
+        "credit_hours": 3
+    },
+    "CSCI 344": {
+        "code": "CSCI 344",
+        "title": "Advanced Web Technology",
+        "description": "A class in the development of clients and servers for web applications. Topics include database integration, web site management, and the development of applications with scripting languages such as JavaScript. Prerequisite: one course from CSCI 182, 183, 185 or 201. Spring.",
+        "credit_hours": 3
+    },
+    "CSCI 347": {
+        "code": "CSCI 347",
+        "title": "Game Programming",
+        "description": "A project-oriented course that offers an introduction to game design and development techniques. Students will collaboratively gain experience creating game design documents and storyboards, develop complete projects using current game engines, and produce effective documentation of their work. Topics include game engine basics, graphics, animation, gaming rules, game structures, and environmental modeling. Prerequisite: grade of C or higher in CSCI 202. Odd years Spring.",
+        "credit_hours": 3
+    },
+    "CSCI 364": {
+        "code": "CSCI 364",
+        "title": "Cybersecurity",
+        "description": "Discusses the topic of security as it relates to computer systems. Topics covered include security policies, computer security management and risk assessment, secured network protocols, software security issues, ethical and legal aspects of cybersecurity. Prerequisites: CSCI 235 and a grade of C or higher in CSCI 202. Spring.",
+        "credit_hours": 3
+    },
+    "CSCI 373": {
+        "code": "CSCI 373",
+        "title": "ST: Introduction to Cybersecurity",
+        "description": "This course discusses the topic of security as it relates to computer systems.  Topics covered include security policies, computer security management and risk assessment, secured network protocols, software security issues, ethical and legal aspects of cybersecurity.Prerequisite: CSCI 202 with a grade of C or higher.",
+        "credit_hours": 3
+    },
+    "CSCI 431": {
+        "code": "CSCI 431",
+        "title": "Org of Programming Languages",
+        "description": "Definition and design of high-level programming languages; formal tools for language definition and specification of semantics; case studies of several languages. Prerequisite: CSCI 434. Even years Spring.",
+        "credit_hours": 3
+    },
+    "CSCI 441": {
+        "code": "CSCI 441",
+        "title": "Numerical Analysis",
+        "description": "The theory and methods behind solving mathematical problems numerically. Topics include polynomial approximation, numerical integration, matrix algebra, solutions to systems of non-linear equations and numerical solutions to differential equations. Prerequisites: MATH 192, 365; CSCI 182 or 183 or 185; or permission of instructor. Odd years Spring.",
+        "credit_hours": 3
+    },
+    "CSCI 480": {
+        "code": "CSCI 480",
+        "title": "Capstone I",
+        "description": "Capstone project design. Determining hardware and software requirements. Review of relevant literature and development tools. Students develop and submit an individual capstone project proposal. Prerequisite: CSCI 280; pre- or corequisite CSCI 338. Fall and Spring.",
+        "credit_hours": 2
+    },
+    "CSCI 481": {
+        "code": "CSCI 481",
+        "title": "Capstone II",
+        "description": "Capstone project implementation. Students implement the project plan that they developed in CSCI 480. Includes an oral presentation before the department’s assembled faculty. Prerequisite: CSCI 480. Fall and Spring.",
+        "credit_hours": 2
+    },
+    "CSCI 499": {
+        "code": "CSCI 499",
+        "title": "UGR in CSCI: Game Design *Permission of Instructor Required",
+        "description": "Independent research under the supervision of a faculty mentor. An IP grade may be awarded at discretion of instructor. May be repeated for a total of 6 hours credit. See department chair.",
+        "credit_hours": 1
+    },
+    "CSCI 333": {
+        "code": "CSCI 333",
+        "title": "Algorithms and Data Structures",
+        "description": "Data structures, efficient algorithms that use them, and their representation in programming languages. Topics include recursive analysis, randomized analysis, searching and sorting algorithms along with their data structures, order statistic selection, graph algorithms, and a selection of additional, related topics. Students will analyze their efficiency and implement them in a modern programming language. Prerequisite: grade of C or higher in CSCI 202. Fall.",
+        "credit_hours": 3
+    },
+    "CSCI 335": {
+        "code": "CSCI 335",
+        "title": "Systems II",
+        "description": "Advanced computer systems for programmers. Selected topics in operating systems, networking, and parallel computing. Prerequisite: CSCI 202 with a grade of C or higher and CSCI 235. Fall.",
+        "credit_hours": 3
+    },
+    "CSCI 343": {
+        "code": "CSCI 343",
+        "title": "Database Management Systems",
+        "description": "Study of theory and application of database management systems. Topics include database design, data normalization, transaction management and data access methods. Prerequisite: grade of C or higher in CSCI 202. Fall.",
+        "credit_hours": 3
+    },
+    "CSCI 412": {
+        "code": "CSCI 412",
+        "title": "Computer Vision",
+        "description": "A study of inference from noisy and uncertain data using probabilistic, statistical, data-driven approaches. Topics include image processing; segmentation, grouping, and boundary detection; recognition and detection; motion estimation and structure from motion. Prerequisites: grade of C or higher in CSCI 202; STAT 185 or 225. Even years Fall.",
+        "credit_hours": 3
+    },
+    "CSCI 434": {
+        "code": "CSCI 434",
+        "title": "Theory of Computation",
+        "description": "A study of formal models of computation, grammars and languages, including finite statemachines, regular expressions and Turing machines. Prerequisites: a grade of C or higherin CSCI 202; MATH 251. Fall.",
+        "credit_hours": 3
+    },
+    "CSCI 329": {
+        "code": "CSCI 329",
+        "title": "Big Data Analytics",
+        "description": "The analysis of unstructured and large data sets. Topics include: preparing data for deeper analysis, breaking down the process into manageable steps, regression techniques and Bayesian approach for dealing with multivariate data, and Exploratory Data Analysis with statistics software such as SAS, R, or similar packages. Prerequisites: STAT 185 or 225, CSCI 182 or 183, or permission of instructor. Even years Spring.",
+        "credit_hours": 3
+    },
+    "CSCI 346": {
+        "code": "CSCI 346",
+        "title": "Computer Graphics",
+        "description": "The study of programming techniques for the display of two-and three-dimensional objects. Topics include affine transformations, hidden line and surface elimination, raster methods, color theory, and animation. Prerequisite: grade of C or higher in CSCI 202; pre- or corequisite: MATH 365. Even years Spring.",
+        "credit_hours": 3
+    },
+    "CSCI 374": {
+        "code": "CSCI 374",
+        "title": "ST: Community Team Project *Permission of Instructor Required",
+        "description": "Students work in groups on a problem posed by an area business. Students meet with stakeholders regularly to establish goals and priorities, provide progress reports, and receive feedback. Students learn to interact in a professional setting, manage deadlines, communicate results to technical and non-technical audiences, and think critically to find solutions. At the end of the semester each group will produce a written summary of their work and a presentation for the community partner. Prerequisite: Permission of instructor.",
+        "credit_hours": 4
+    },
+    "CSCI 312": {
+        "code": "CSCI 312",
+        "title": "Intro Artificial Intelligence",
+        "description": "An introduction to the sub-discipline of artificial intelligence. Students will investigate and implement various models of intelligent agents interacting within defined environments. Topics include knowledge representation, problem-solving via search, reasoning via probabilistic methods, and machine learning. Prerequisite: grade of C or higher in CSCI 202; STAT 185 or 225. Odd years Fall.",
+        "credit_hours": 3
+    },
+    "CSCI 107": {
+        "code": "CSCI 107",
+        "title": "Lab for CSCI 107",
+        "description": "A survey of computer hardware and software, networking and the Internet, the convergence of personal computers and consumer electronics, digital representation of sound and images, multimedia presentations and authoring. Includes formal labs to develop skills in useful computer applications such as spreadsheets, databases, Internet browsers and multimedia design tools. Fall and Spring.",
+        "credit_hours": 0
+    }
+}
