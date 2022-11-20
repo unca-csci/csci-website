@@ -1,8 +1,8 @@
 #course-list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 30px;
-    row-gap: 30px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 40px;
 }
 
 .courses header {
@@ -26,12 +26,13 @@
   
 .courses select::-ms-expand { display: none; }
 
-#course-list p {
+/* #course-list p {
     margin: 0;
-}
+} */
 #course-list h2 {
-    margin-bottom: 0;
+    margin-bottom: 18px;
     font-weight: 400;
+    line-height: 1.2em;
 }
 
 .fa-circle-check {
@@ -43,5 +44,5 @@
 }
 
 strong {
-    font-weight: 500;
+    font-weight: 600;
 }

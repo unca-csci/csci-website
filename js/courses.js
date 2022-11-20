@@ -38,11 +38,11 @@ window.CourseBrowser = class {
                 desc = desc.replaceAll("\\n", "");
                 desc = desc.replaceAll("\\r", "");
                 course.Description = desc;
-                this.addToInventory(course);
+                // this.addToInventory(course);
                 this.displayCourse(course);
             }
         }
-        this.toJSON();
+        // this.toJSON();
     }
 
     addToInventory(courseData) {
@@ -51,14 +51,14 @@ window.CourseBrowser = class {
             code: code,
             title: courseData.Title,
             description: courseData.Description,
-            credit_hours: courseData.Hours
+            credit_hours: courseData.Hours,
+            level: courseData.Code[5] + "00"
         }
     }
 
     toJSON() {
         console.log(JSON.stringify(this.courses));
     }
-
 
     displayCourse(course) {
         console.log(course);
@@ -73,6 +73,7 @@ window.CourseBrowser = class {
         const startTime = new Date(course.StartTime).toLocaleTimeString([], {timeStyle: 'short'});
         const endTime = new Date(course.EndTime).toLocaleTimeString([], {timeStyle: 'short'});
         const meets = course.Days ? course.Days : "";
+        const location = course.Location.FullLocation ? course.Location.FullLocation + " &bull;" : "";
         const template = `
             <section class="course">
                 <h2>${course.Code}: ${course.Title}</h2>
@@ -84,7 +85,7 @@ window.CourseBrowser = class {
                 </p>
                 <p>
                     ${meets} ${startTime} - ${endTime} &bull; 
-                    ${course.Location.FullLocation} &bull; 
+                    ${ location }
                     ${course.Hours} credit hour(s)
                 </p>
                 <p><strong>${instructor}</strong></p>

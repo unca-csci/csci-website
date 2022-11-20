@@ -10,12 +10,10 @@
     font-weight: 500;
 }
 .curriculum > section p, .curriculum li {
-    /* color: #777; */
     font-size: 0.95em;
 }
 .curriculum-nav {
     padding: 15px 0 20px 0;
-    /* border-bottom: solid 2px black; */
 }
 
 .curriculum-nav ul {
@@ -65,7 +63,9 @@
 }
 .curriculum li {
     padding-left: 2.2em;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    /* margin-bottom: 0px; */
 }
 .curriculum li:before {
     content: "\f00c"; /* FontAwesome Unicode */
@@ -84,6 +84,7 @@
     padding: 4px 12px;
     background-color: white;
     border: solid black 2px;
+    font-family: 'Poppins', sans-serif;
     /* border-radius: 4px; */
 }
 
