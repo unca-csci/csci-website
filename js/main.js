@@ -1,6 +1,7 @@
 let storedHash;
 let currentPanelIndex = 0;
 let scrollPosition = 0;
+let clearSlides;
 const pages = ['course-schedule', 'student-projects'];
 // const pageMap = {
 //     'courses.html': `#panel-4`
@@ -28,6 +29,7 @@ const injectScriptIfExists = (html, containerEl) => {
             let path = match.split("\"")[1];
             var script = document.createElement('script');
             script.setAttribute('src',path);
+            // script.setAttribute('defer', true);
             containerEl.appendChild(script);
         })
     }
@@ -79,6 +81,21 @@ const setPosition = () => {
     scrollPosition = slideEl.clientWidth * currentPanelIndex;
 };
 
+const clearOldSlide = (prevIndex) => {
+    // ensures smooth transition
+    if (prevIndex == currentPanelIndex) {
+        return;
+    }
+    const oldSlide = document.querySelector(`#panel-${prevIndex}`);
+    oldSlide.querySelectorAll('*').forEach(elem => elem.id = '');
+    if (clearSlides) {
+        clearSlides.clearTimeout();
+    }
+    clearSlides = setTimeout(() => {
+        oldSlide.innerHTML = "";
+    }, 1500);
+}
+
 const initNavigation = () => {
     console.log("initNavigation");
     const containerEl = document.querySelector('.slides-container');
@@ -108,8 +125,7 @@ const showPage = () => {
     if (storedHash === '') {
         return;
     }
-    const currentSlide = document.querySelector(`#panel-${currentPanelIndex}`);
-    // currentSlide.innerHTML = "";
+    let prevIndex = currentPanelIndex;
     
     const fileName = storedHash.replace('#', '') + '.html';
     let found = false;
@@ -125,6 +141,8 @@ const showPage = () => {
         console.log('not in list', fileName, currentPanelIndex);
         showSection(fileName, currentPanelIndex);
     }
+
+    clearOldSlide(prevIndex);
 };
 
 const toggleMenu = ev => {

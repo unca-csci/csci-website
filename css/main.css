@@ -72,10 +72,13 @@ main {
     padding-left: 10vw;
     padding-right: 10vw;
     padding-top: 30px;
-    min-height: calc(100vh - 250px);
     position: relative;
     overflow: hidden;
     margin-top: 120px;
+}
+
+.slides-container {
+    min-height: calc(100vh - 270px);
 }
 
 main h1 {

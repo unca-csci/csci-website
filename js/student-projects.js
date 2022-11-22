@@ -52,3 +52,4 @@ window.StudentProjects = class {
 
 window.studentProjects = new StudentProjects();
 window.studentProjects.fetchProjects();
+console.log('loaded student-projects.js');
