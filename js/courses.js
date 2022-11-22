@@ -28,10 +28,17 @@ window.CourseBrowser = class {
     async displayResults(courseList) {
         document.querySelector('#course-list').innerHTML = "";
         // access the #results section and put the course title into it. 
+        let termUrl;
+        try {
+            termUrl = document.querySelector('#term').value;
+        } catch(e) {
+            console.log('slide changed');
+            return;
+        }
+                
         for (let i = 0; i < courseList.length; i++) {
             const course = courseList[i];
             if (course.Department == "CSCI") {
-                const termUrl = document.querySelector('#term').value;
                 const descUrl = 'https://meteor.unca.edu/registrar/class-schedules/api/v1/courses/description/';
                 let desc = await fetch(descUrl + termUrl + course.CRN + '/').then(response => response.text());
                 desc = desc.replaceAll("\"", "");
@@ -61,7 +68,7 @@ window.CourseBrowser = class {
     }
 
     displayCourse(course) {
-        console.log(course);
+        // console.log(course);
         // don't access the first instructor if no instructors are present:
         let instructor = 'Unknown';
         if (course.Instructors.length > 0) {
@@ -92,7 +99,11 @@ window.CourseBrowser = class {
 
                 <p>${course.Description}</p>
             </section>`;
-        document.querySelector('#course-list').insertAdjacentHTML('beforeend', template);
+        try {
+            document.querySelector('#course-list').insertAdjacentHTML('beforeend', template);
+        } catch(e) {
+            console.log(e);
+        }
     }
 
 }

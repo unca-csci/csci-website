@@ -89,7 +89,8 @@ const clearOldSlide = (prevIndex) => {
     const oldSlide = document.querySelector(`#panel-${prevIndex}`);
     oldSlide.querySelectorAll('*').forEach(elem => elem.id = '');
     if (clearSlides) {
-        clearSlides.clearTimeout();
+        clearTimeout(clearSlides);
+        clearSlides = null;
     }
     clearSlides = setTimeout(() => {
         oldSlide.innerHTML = "";
