@@ -69,8 +69,8 @@ nav a, nav a:link, nav a:hover, nav a:active {
 
 
 main {
-    padding-left: 5em;
-    padding-right: 5em;
+    padding-left: 10vw;
+    padding-right: 10vw;
     padding-top: 30px;
     min-height: calc(100vh - 250px);
     position: relative;

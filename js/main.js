@@ -1,14 +1,13 @@
 let storedHash;
 let currentPanelIndex = 0;
 let scrollPosition = 0;
-const pages = ['course-schedule'];
+const pages = ['course-schedule', 'student-projects'];
 // const pageMap = {
 //     'courses.html': `#panel-4`
 // };
 
 const showSection = (fileName, idx) => {
     const slideEl = document.querySelector(`#panel-${idx}`);
-    const containerEl = document.querySelector('.slides-container');
     fetch(`./templates/${fileName}`)
         .then(response => response.text())
         .then(html => {
@@ -69,7 +68,7 @@ const setPosition = () => {
     const containerEl = document.querySelector('.slides-container');
     const slideEl = document.querySelector(`#panel-${currentPanelIndex}`);
     
-    // queue up:
+    // temporarily disable animation:
     window.scrollTo(0, 0);
     containerEl.style.scrollBehavior = 'auto';
     containerEl.scrollTo(scrollPosition, 0);

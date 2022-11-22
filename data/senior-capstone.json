@@ -1,0 +1,29 @@
+[
+    {
+        "student_name": "Jaydin Andrews",
+        "title": "Exploring Microarchitectures with LLAMA-16",
+        "abstract": "TBD",
+        "symposium_url": "https://2022fallsymposium.sched.com/event/1EPcT/exploring-microarchitectures-with-llama-16",
+        "term": "Fall 2022",
+        "advisors": ["Kenneth Bogert", "Kevin Sanft"],
+        "report_url": "#"
+    },
+    {
+        "student_name": "Maximilian Levine",
+        "title": "Triangle Peak",
+        "abstract": "Triangle Peak is an educational game that turns learning trigonometry into a fun puzzle platformer. It is inspired by practical applications of trigonometry, and transforms what would be dry textbook problems into something that feels real. Gamification is a practice that often involves attaching RPG-esque leveling systems onto otherwise unrelated items. But Triangle Peak uses a different and genuine educational approach, with its mechanics directly mirroring the aspect of reality it corresponds to, and through uses of trigonometry in the real world, places the player into practical usage of the concepts. The player must traverse a world and find or calculate the measurements of varying things—width of a chasm, height of an air balloon, depth of a well, etc.—to progress, using their mathematical toolset to find the answers just out of reach. It melds platforming with trigonometry problems by turning walls and the limitations of gravity into the unknown lengths/angles found in regular trigonometry problems. The player uses a drafting book that lets them draw and connect lines, and a measuring tape and protractor that respectively lets them measure the lengths and angles of these lines—provided their player character can physically reach them. The player also collects various trigonometry equations: the “SOH CAH TOA” equations, the Pythagorean theorem, the sum of angles rule, similar triangles, law of sines/cosines, and so on. They can plug in their measurements to these equations and receive outputs for the unknowns in the problems. The completed product of Triangle Peak has great potential to be used in education, and to allow people of all ages to get a better grasp on trigonometry concepts in a fun way.",
+        "symposium_url": "https://2022fallsymposium.sched.com/event/1EPcl/triangle-peak",
+        "term": "Fall 2022",
+        "advisors": ["Kenneth Bogert", "Adam Whitley"],
+        "report_url": "#"
+    },
+    {
+        "student_name": "Cody Lahm",
+        "title": "Democracy: A Blockchain-based Auditable Voting App",
+        "abstract": "The field of content generation using machine learning is still very much in its infancy, but perhaps one of the most important model architectures to be created is the Generative Adversarial Network(GAN). Breaking through many other competitions against contemporary models, GANs have produced extremely high quality results. While these models have pushed the field of generative content forward significantly, little to no work has been done to help creatives augment their workflows. I believe that this can be done specifically in the area of fantasy terrain generation. I have developed a new tool for users to be able to supply a rough hand drawn map to my CartoGAN model, and let the model interpret the input into a 3D model output heightmap. I believe that this will help push the envelope forward for computer aided creativity.",
+        "symposium_url": "https://2022fallsymposium.sched.com/event/1EPcZ/democracy-a-blockchain-based-auditable-voting-app",
+        "term": "Fall 2022",
+        "advisors": ["Kenneth Bogert", "Kevin Sanft"],
+        "report_url": "#"
+    }
+]
