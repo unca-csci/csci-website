@@ -31,6 +31,7 @@
     display: flex;
     flex-direction: column;    
     background-position-y: 120px;
+    background-position-x: center;
     background-attachment: fixed;
     padding: 20px 8vw;
     background-repeat: no-repeat;
@@ -40,7 +41,7 @@
 .bg-landing .info-box {
     /* display: flex; */
     background: #FFFFFFCC;
-    height: 200px;
+    height: 90%;
     width: 30vw;
     /* justify-content: left; */
     padding: 20px;

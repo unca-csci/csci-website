@@ -1,3 +1,11 @@
+.curriculum-container {
+    display: grid;
+    grid-template-columns: auto 300px;
+    column-gap: 50px;
+}
+.curriculum-container h1 {
+    grid-column: 1 / 3;
+}
 .curriculum {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -12,7 +20,7 @@
 .curriculum > section p, .curriculum li {
     font-size: 0.95em;
 }
-.curriculum-nav {
+/* .curriculum-nav {
     padding: 15px 0 20px 0;
 }
 
@@ -25,9 +33,9 @@
 }
 .curriculum-nav li {
     margin-right: 20px;
-}
+} */
 
-.curriculum-nav a, 
+/* .curriculum-nav a, 
 .curriculum-nav a:link, 
 .curriculum-nav a:hover, 
 .curriculum-nav a:active {
@@ -44,7 +52,7 @@
 .curriculum-nav a:hover {
     color: #444;
     border: solid 2px black;
-}
+} */
 
 .curriculum > section {
     background: #f9f9f9;
