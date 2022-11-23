@@ -32,7 +32,7 @@ body * {
     align-items: flex-end;
     justify-content: space-between;
     padding-bottom: 20px;
-    padding-left: 10vw;
+    padding-left: 5vw;
     padding-right: 10vw;
 }
 
@@ -69,16 +69,16 @@ nav a, nav a:link, nav a:hover, nav a:active {
 
 
 main {
-    padding-left: 10vw;
-    padding-right: 10vw;
-    padding-top: 30px;
+    /* padding-left: 10vw;
+    padding-right: 10vw; */
+    /* padding-top: 30px; */
     position: relative;
     overflow: hidden;
     margin-top: 120px;
 }
 
 .slides-container {
-    min-height: calc(100vh - 270px);
+    min-height: 150vh;
 }
 
 main h1 {
@@ -101,13 +101,6 @@ footer {
     text-align: center;
     min-height: 100px;
 }
-
-
-
-.mobile {
-    display: none;
-}
-
 
 @media screen and (max-width: 1200px) {
     header {

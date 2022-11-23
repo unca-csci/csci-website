@@ -16,6 +16,47 @@
     padding-right: 5em; */
 }
 
+.slide-content {
+    padding-top: 30px;
+    padding-left: 8vw;
+    padding-right: 10vw;
+}
+
+
+.bg-landing {
+    background-image: url('../images/landing-1.jpeg');
+    width: 100%;
+    height: 350px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;    
+    background-position-y: 120px;
+    background-attachment: fixed;
+    padding: 20px 8vw;
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+
+.bg-landing .info-box {
+    /* display: flex; */
+    background: #FFFFFFCC;
+    height: 200px;
+    width: 30vw;
+    /* justify-content: left; */
+    padding: 20px;
+}
+.bg-landing .info-box h1, 
+.bg-landing .info-box p 
+ {
+    margin: 0;
+    display: inline;
+}
+
+
+.mobile {
+    display: none;
+}
+
 @media screen and (max-width: 900px) {
     .slides-container {
         scroll-behavior: auto;
