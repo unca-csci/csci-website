@@ -24,6 +24,7 @@
     --banner-one-height: 50px;
     --banner-two-height: 120px;
     --main-margin: 170px;
+    --bg-img2: url(https://png.pngtree.com/background/20210714/original/pngtree-vector-abstract-futuristic-digital-landscape-with-particles-dots-and-stars-on-picture-image_1240800.jpg);
 
 }
 body {
@@ -92,7 +93,6 @@ body * {
     padding-left: 5vw;
     padding-right: 10vw;
 }
-
 
 .main-header h1,
 .main-header h2 {
