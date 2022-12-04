@@ -163,3 +163,50 @@ window.setInterval(function () {
 
 window.onresize = setPosition;
 
+const colors = [
+    "--bulldog-blue",
+    "--evening-blue",
+    "--sky-blue",
+    "--bright-blue",
+    "--morning-blue",
+    "--daybreak-blue",
+    "--light-blue",
+    "--forest",
+    "--river",
+    "--night-sky",
+    "--frost-gray",
+    "--steel-gray",
+    "--stone-gray",
+    "--honeybee",
+    "--autumn",
+    "--clay",
+    "--gold",
+    "--chestnut",
+    "--maple"
+]
+
+const changeColor = (idx) => {
+    document.querySelector('.main-header').style.backgroundColor = `var(${colors[idx]})`; 
+}
+
+const showSwatches = () => {
+    const html = colors
+    .map((color, idx) => {
+        return `<div 
+            style="background: var(${color});"
+            data-idx="${idx}"
+            onclick="changeColor(${idx});"></div>`;
+    }).join('\n');
+    document.body.insertAdjacentHTML('beforeend', `<div class="colors">${html}</div>`);
+};
+
+document.body.onkeyup = function(e) {
+    if (e.key === " " || e.code === "Space" || e.keyCode === 32) {
+        const i = Math.floor(Math.random() * colors.length);
+        changeColor(i);
+    }
+    e.preventDefault();
+}
+
+showSwatches();
+
