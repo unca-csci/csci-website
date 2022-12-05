@@ -19,7 +19,7 @@
 .slide-content {
     /* padding-top: 30px; */
     padding-left: 8vw;
-    padding-right: 10vw;
+    padding-right: 5vw;
 }
 
 
@@ -34,7 +34,7 @@
     background-position-y: -85px;
     /* background-position-x: -55px; */
     background-attachment: fixed;
-    padding: 20px 8vw;
+    padding: 20px 5vw;
     background-repeat: no-repeat;
     justify-content: center;
     align-items: flex-end;

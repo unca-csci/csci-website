@@ -183,10 +183,28 @@ const colors = [
     "--gold",
     "--chestnut",
     "--maple"
-]
+];
 
 const changeColor = (idx) => {
-    document.querySelector('.main-header').style.backgroundColor = `var(${colors[idx]})`; 
+    const colorProp = colors[idx];
+    document.querySelector('.main-header').style.backgroundColor = `var(${colorProp})`; 
+    
+    // change color of text:
+    let colorVal = getComputedStyle(document.documentElement).getPropertyValue(colorProp).trim();
+    const levels = [
+        colorVal[1] + colorVal[2],
+        colorVal[3] + colorVal[4],
+        colorVal[5] + colorVal[6] 
+    ];
+    const sum = levels.reduce((a, b) => {
+        return a + parseInt(b, 16);
+    }, 0);
+    console.log(sum);
+    if (sum < 450) {
+        document.documentElement.style.setProperty('--banner-text-color', 'white');
+    } else {
+        document.documentElement.style.setProperty('--banner-text-color', 'black');
+    }
 }
 
 const showSwatches = () => {

@@ -140,6 +140,13 @@ main {
     margin-top: var(--main-margin);
 }
 
+.main-container {
+    display: grid;
+    grid-template-columns: auto 30vw;
+    column-gap: 50px;
+    align-items: start;
+}
+
 .slides-container {
     min-height: 150vh;
 }
@@ -155,14 +162,20 @@ h2 {
 
 
 footer {
-    background-color: #444;
+    /* background-color: #444; */
     color: white;
     margin-top: 50px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    padding-bottom: 50px;
     justify-content: center;
     text-align: center;
     min-height: 100px;
+    background-image: url(https://csci-185.github.io/fall2022/assets/images/mountains4.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 50px;
+    height: 600px !important;
 }
 
 .colors {
