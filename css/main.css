@@ -46,90 +46,6 @@ p, li {
 body * {
     box-sizing: border-box;
 }
-#unca {
-    padding-left: 5vw;
-    padding-right: 10vw;
-    z-index: 100;
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--bulldog-blue);
-    height: var(--banner-one-height);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.button {
-    background: transparent;
-    /* font-weight: bold; */
-    font-family: 'Poppins', sans-serif;
-    border: solid 2px white !important;
-    color: white;
-    padding: 2px 12px;
-    text-decoration: none;
-}
-
-.unca-logo {
-    height: 70%;
-    width: auto;
-}
-
-.main-header {
-    z-index: 100;
-    position: fixed;
-    width: 100%;
-    top: var(--banner-one-height);
-    /* background-color: rgb(237, 237, 14); */
-    /* background-color: #f6f63d; */
-    background-color: var(--banner-bg-color);
-    height: var(--banner-two-height);
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    padding-bottom: 20px;
-    padding-left: 5vw;
-    padding-right: 10vw;
-}
-
-.main-header h1,
-.main-header h2 {
-    color: var(--banner-text-color);
-}
-
-.logo h1, .logo h2 {
-    font-size: 2em;
-    font-weight: 300;
-    margin: 0;
-}
-
-.logo h2 {
-    font-size: 1em;
-}
-
-.main-header nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-    margin: 0;
-}
-.main-header nav ul li {
-    margin-right: 15px;
-}
-nav a, nav a:link, nav a:hover, nav a:active {
-    color: var(--banner-text-color);
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-    border-bottom: solid 2px transparent;
-}
-.main-header nav a:hover {
-    color: var(--banner-text-color);
-    border-bottom: solid 2px var(--banner-text-color);
-}
-
 
 main {
     /* padding-left: 10vw;
@@ -196,9 +112,6 @@ footer {
 }
 
 @media screen and (max-width: 1200px) {
-    header {
-        padding: 1vh 3vw 3vh 3vw;
-    }
     main {
         padding-left: 0;
         padding-right: 0;
@@ -232,45 +145,5 @@ footer {
         padding-left: 5vw;
         padding-right: 5vw;
     }
-    .main-header nav ul {
-        height: 0px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        width: 100vw;
-        top: 70px;
-        left: 0;
-        justify-content: flex-start;
-        /* background-color: rgb(237, 237, 14); */
-        background-color: #f6f63d;
-        transition: height 0.2s ease-in;
-        padding: 0;
-    }
-
-    .main-header nav.show ul {
-        height: auto;
-        box-shadow: 0px 7px 6px rgb(0 0 0 / 16%), 0px 6px 6px rgb(0 0 0 / 23%);
-    }
-    .main-header nav li {
-        height: 30px;
-        display: flex;
-        align-items: center;
-        padding: 0px 3vw;
-        /* border: solid 1px #000; */
-    }
-    .main-header nav li:last-child {
-        margin-bottom: 30px;
-
-    }
-    .main-header nav li a {
-        width: 100%;
-        border: solid 0px transparent;
-        height: 20px;
-    } 
-    .main-header nav li a:hover {
-        border: solid 0px transparent;
-        font-weight: 600;
-        color: #444;
-    }
+    
 }
