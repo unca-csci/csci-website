@@ -1,3 +1,7 @@
+.courses.slide-content {
+    padding-top: 30px;
+}
+
 #course-list, #student-projects {
     display: grid;
     grid-template-columns: 1fr 1fr;
