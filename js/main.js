@@ -2,10 +2,7 @@ let storedHash;
 let currentPanelIndex = 0;
 let scrollPosition = 0;
 let clearSlides;
-const pages = ['course-schedule', 'student-projects'];
-// const pageMap = {
-//     'courses.html': `#panel-4`
-// };
+const pages = ['course-schedule', 'student-projects', 'course-map'];
 
 const showSection = (fileName, idx) => {
     const slideEl = document.querySelector(`#panel-${idx}`);
