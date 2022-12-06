@@ -13,11 +13,15 @@ pageConfig = {
     },
     "people": {
         "main": "people.tpl",
-        "slideNum": 2
+        "slideNum": 3
     },
     "areas": {
         "main": "areas.tpl",
         "slideNum": 4 
+    },
+    "curriculum": {
+        "main": "curriculum.tpl",
+        "slideNum": 5 
     },
     "course-schedule": {
         "main": "course-schedule.tpl",
@@ -29,20 +33,31 @@ pageConfig = {
         "aside": "curriculum-menu.tpl",
         "slideNum": 5
     },
+    "student-projects": {
+        "main": "student-projects.tpl",
+        "aside": "curriculum-menu.tpl",
+        "slideNum": 5
+    },
+    "courses": {
+        "main": "courses.tpl",
+        "slideNum": 6 
+    }
 }
-const pages = ['course-schedule', 'student-projects', 'course-map'];
+// const pages = ['course-schedule', 'student-projects', 'course-map'];
 
-const showSection = (fileName, idx) => {
-    const slideEl = document.querySelector(`#panel-${idx}`);
-    fetch(`./templates/${fileName}`)
-        .then(response => response.text())
-        .then(html => {
-            slideEl.innerHTML = html;
-            document.querySelector('nav').classList.remove('show');
+const showSection = async (page) => {
+    let prevIndex = currentPanelIndex;
+    currentPanelIndex = page.slideNum;
+    const slideEl = document.querySelector(`#panel-${currentPanelIndex}`);
+    const html = await fetch(`./templates/${page.main}`).then(response => response.text());
 
-            injectScriptIfExists(html, slideEl);
-            setPosition();
-        })
+    slideEl.innerHTML = html;
+    document.querySelector('nav').classList.remove('show');
+
+    injectScriptIfExists(html, slideEl);
+    setPosition();
+     
+    clearOldSlide(prevIndex);
 };
 
 const injectScriptIfExists = (html, containerEl) => {
@@ -56,7 +71,7 @@ const injectScriptIfExists = (html, containerEl) => {
             containerEl.appendChild(script);
         })
     }
-}
+};
 
 const showLightbox = fileName => {
     const lightboxEl = document.querySelector('#lightbox');
@@ -67,7 +82,7 @@ const showLightbox = fileName => {
             lightboxEl.classList.add('show');
             document.body.style.overflowY = 'hidden';
         })
-}
+};
 
 const hideLightbox = ev => {
     const classList = ev.target.classList;
@@ -82,7 +97,7 @@ const hideLightbox = ev => {
     const lightboxEl = document.querySelector('#lightbox');
     lightboxEl.classList.remove('show');
     document.body.style.overflowY = 'scroll';
-}
+};
 
 const initPage = () => {
     initNavigation();
@@ -125,7 +140,6 @@ const initNavigation = () => {
     const containerEl = document.querySelector('.slides-container');
     const links = document.querySelectorAll('ul a');
     links.forEach((link, idx) => {
-        pages.push(link.href.split('#')[1]);
         link.dataset.index = (idx+1);
         const template = `
             <section class='slide' id="panel-${idx+1}"></section>
@@ -136,37 +150,19 @@ const initNavigation = () => {
 
 const loadFirstPage = () => {
     storedHash = window.location.hash;
-    const tokens = storedHash.split('#');
-    console.log(tokens, pages);
-    if (tokens.length < 2 || tokens[1].length === 0 || !pages.includes(tokens[1])) {
-        window.location.href = '#home';
-    } else {
-        showPage();
-    }
-}
+    const key = storedHash.replace('#', '');
+    showSection(pageConfig[key] || pageConfig['home']);
+};
 
 const showPage = () => {
-    if (storedHash === '') {
-        return;
+    if (storedHash === '') { return; }
+    const key = storedHash.replace('#', '');
+    const page = pageConfig[key];
+    if (page) {
+        showSection(page);
+    } else {
+        console.log("Treat as a regular hashtag!");
     }
-    let prevIndex = currentPanelIndex;
-    
-    const fileName = storedHash.replace('#', '') + '.tpl';
-    let found = false;
-    document.querySelectorAll('.main-nav ul a').forEach((el, idx) => {
-        if (el.href == window.location.href) {
-            found = true;
-            currentPanelIndex = idx+1;
-            console.log('in list', fileName, idx+1);
-            showSection(fileName, idx+1);
-        }
-    })
-    if (!found) {
-        console.log('not in list', fileName, currentPanelIndex);
-        showSection(fileName, currentPanelIndex);
-    }
-
-    clearOldSlide(prevIndex);
 };
 
 const toggleMenu = ev => {
@@ -185,4 +181,3 @@ window.setInterval(function () {
 }, 100);
 
 window.onresize = setPosition;
-

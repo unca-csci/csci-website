@@ -4,7 +4,7 @@
         
         <p>
             The Department of Computer Science offers a <strong>CS Minor</strong> and a <strong>CS Major</strong> 
-            with two different concentrations: Computer Systems and Information Systems.
+            with two different concentrations: <a href="#bookmark_systems">Computer Systems</a> and Information Systems.
         </p>
         <h2>The Computer Science Major</h2>
 
@@ -15,7 +15,7 @@
             at the graduate level.
         </p>
     
-        <h3>Computer Systems Concentration</h3> 
+        <h3 id="bookmark_systems">Computer Systems Concentration</h3> 
         <p>The <strong>Computer Systems</strong> concentration covers hardware and software design and prepares students
             for
             careers in scientific and engineering applications, systems programming, computer architecture design and
