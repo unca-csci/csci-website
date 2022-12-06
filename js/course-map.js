@@ -17,7 +17,7 @@ window.CourseBrowser = class {
     }
 
     async fetchCourses() {
-        const url = '../data/courses.json';
+        const url = 'data/courses.json';
         document.querySelector('#course-list').innerHTML = "Searching...";
         const data = await fetch(url).then(response => response.json());
         this.courses = data.courses;

@@ -3,7 +3,7 @@
         <h1>Welcome to the UNCA Computer Science Department</h1>
     </div>
 </div>
-<div class="slide-content main-container">
+<div class="slide-content home-container">
     <div class="content">
         <h1>Who We Are</h1>
         <p>What can you do with a degree in computer science? The question is, what can’t you do? As software engineers,

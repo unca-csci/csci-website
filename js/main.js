@@ -1,7 +1,35 @@
 let storedHash;
-let currentPanelIndex = 0;
+let currentPanelIndex = 1;
 let scrollPosition = 0;
 let clearSlides;
+pageConfig = {
+    "home": {
+        "main": "home.tpl",
+        "slideNum": 1
+    },
+    "news": {
+        "main": "news.tpl",
+        "slideNum": 2
+    },
+    "people": {
+        "main": "people.tpl",
+        "slideNum": 2
+    },
+    "areas": {
+        "main": "areas.tpl",
+        "slideNum": 4 
+    },
+    "course-schedule": {
+        "main": "course-schedule.tpl",
+        "aside": "curriculum-menu.tpl",
+        "slideNum": 5
+    },
+    "course-map": {
+        "main": "course-map.tpl",
+        "aside": "curriculum-menu.tpl",
+        "slideNum": 5
+    },
+}
 const pages = ['course-schedule', 'student-projects', 'course-map'];
 
 const showSection = (fileName, idx) => {
@@ -19,14 +47,12 @@ const showSection = (fileName, idx) => {
 
 const injectScriptIfExists = (html, containerEl) => {
     const regex =  /<script[\s\S]*?>[\s\S]*?<\/script>/gi;
-    // const regex =  /"[\s\S]*?"\.js/gi;
     const matches = html.match(regex);
     if (matches && matches.length > 0) {
         matches.forEach(match => {
             let path = match.split("\"")[1];
             var script = document.createElement('script');
             script.setAttribute('src',path);
-            // script.setAttribute('defer', true);
             containerEl.appendChild(script);
         })
     }
@@ -74,8 +100,8 @@ const setPosition = () => {
     containerEl.style.scrollBehavior = 'smooth';
 
     // scroll:
-    containerEl.scrollTo(slideEl.clientWidth * currentPanelIndex, 0);
-    scrollPosition = slideEl.clientWidth * currentPanelIndex;
+    scrollPosition = slideEl.clientWidth * (currentPanelIndex - 1);
+    containerEl.scrollTo(scrollPosition, 0);
 };
 
 const clearOldSlide = (prevIndex) => {
@@ -100,9 +126,9 @@ const initNavigation = () => {
     const links = document.querySelectorAll('ul a');
     links.forEach((link, idx) => {
         pages.push(link.href.split('#')[1]);
-        link.dataset.index = idx;
+        link.dataset.index = (idx+1);
         const template = `
-            <section class='slide' id="panel-${idx}"></section>
+            <section class='slide' id="panel-${idx+1}"></section>
         `;
         containerEl.insertAdjacentHTML('beforeend', template);
     })
@@ -113,7 +139,7 @@ const loadFirstPage = () => {
     const tokens = storedHash.split('#');
     console.log(tokens, pages);
     if (tokens.length < 2 || tokens[1].length === 0 || !pages.includes(tokens[1])) {
-        window.location.href = '#main';
+        window.location.href = '#home';
     } else {
         showPage();
     }
@@ -125,14 +151,14 @@ const showPage = () => {
     }
     let prevIndex = currentPanelIndex;
     
-    const fileName = storedHash.replace('#', '') + '.html';
+    const fileName = storedHash.replace('#', '') + '.tpl';
     let found = false;
     document.querySelectorAll('.main-nav ul a').forEach((el, idx) => {
         if (el.href == window.location.href) {
             found = true;
-            currentPanelIndex = idx;
-            console.log('in list', fileName, idx);
-            showSection(fileName, idx);
+            currentPanelIndex = idx+1;
+            console.log('in list', fileName, idx+1);
+            showSection(fileName, idx+1);
         }
     })
     if (!found) {
@@ -145,7 +171,7 @@ const showPage = () => {
 
 const toggleMenu = ev => {
     ev.preventDefault();
-    document.querySelector('nav').classList.toggle('show');
+    document.querySelector('.main-nav').classList.toggle('show');
 }
 
 initPage();
@@ -159,69 +185,4 @@ window.setInterval(function () {
 }, 100);
 
 window.onresize = setPosition;
-
-const colors = [
-    "--bulldog-blue",
-    "--evening-blue",
-    "--sky-blue",
-    "--bright-blue",
-    "--morning-blue",
-    "--daybreak-blue",
-    "--light-blue",
-    "--forest",
-    "--river",
-    "--night-sky",
-    "--frost-gray",
-    "--steel-gray",
-    "--stone-gray",
-    "--honeybee",
-    "--autumn",
-    "--clay",
-    "--gold",
-    "--chestnut",
-    "--maple"
-];
-
-const changeColor = (idx) => {
-    const colorProp = colors[idx];
-    document.querySelector('.main-header').style.backgroundColor = `var(${colorProp})`; 
-    
-    // change color of text:
-    let colorVal = getComputedStyle(document.documentElement).getPropertyValue(colorProp).trim();
-    const levels = [
-        colorVal[1] + colorVal[2],
-        colorVal[3] + colorVal[4],
-        colorVal[5] + colorVal[6] 
-    ];
-    const sum = levels.reduce((a, b) => {
-        return a + parseInt(b, 16);
-    }, 0);
-    console.log(sum);
-    if (sum < 450) {
-        document.documentElement.style.setProperty('--banner-text-color', 'white');
-    } else {
-        document.documentElement.style.setProperty('--banner-text-color', 'black');
-    }
-}
-
-const showSwatches = () => {
-    const html = colors
-    .map((color, idx) => {
-        return `<div 
-            style="background: var(${color});"
-            data-idx="${idx}"
-            onclick="changeColor(${idx});"></div>`;
-    }).join('\n');
-    document.body.insertAdjacentHTML('beforeend', `<div class="colors">${html}</div>`);
-};
-
-document.body.onkeydown = function(e) {
-    if (e.key === " " || e.code === "Space" || e.keyCode === 32) {
-        const i = Math.floor(Math.random() * colors.length);
-        changeColor(i);
-    }
-    e.preventDefault();
-}
-
-showSwatches();
 

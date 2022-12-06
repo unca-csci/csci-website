@@ -2,7 +2,7 @@
     <h1>Areas of Computer Science</h1>
     <p>Some text about the areas of computer science that students can learn more about.</p>
     <div class="areas">
-        <section class="hci" onclick="showLightbox('hci.html')">
+        <section class="hci" onclick="showLightbox('hci.tpl')">
             <div class="overlay-box">
                 <h2>Human-Computer Interaction</h2>
             </div>
@@ -17,7 +17,7 @@
                 <h2>Virtual Reality</h2>
             </div>
         </section>
-        <section class="cyber" onclick="showLightbox('cybersecurity.html')">
+        <section class="cyber" onclick="showLightbox('cybersecurity.tpl')">
             <div class="overlay-box">
                 <h2>Cybersecurity</h2>
             </div>

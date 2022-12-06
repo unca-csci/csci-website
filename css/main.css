@@ -23,7 +23,9 @@
     --maple: #A6192E;
     --banner-one-height: 50px;
     --banner-two-height: 120px;
+    --banner-two-height-mobile: 70px;
     --main-margin: 170px;
+    --main-margin-mobile: 70px;
     --bg-img2: url(https://png.pngtree.com/background/20210714/original/pngtree-vector-abstract-futuristic-digital-landscape-with-particles-dots-and-stars-on-picture-image_1240800.jpg);
 
 }
@@ -54,13 +56,6 @@ main {
     position: relative;
     overflow: hidden;
     margin-top: var(--main-margin);
-}
-
-.main-container {
-    display: grid;
-    grid-template-columns: auto 30vw;
-    column-gap: 50px;
-    align-items: start;
 }
 
 .slides-container {
@@ -137,13 +132,13 @@ footer {
         margin-top: -3px;
     }
     main {
-        margin-top: 90px;
+        margin-top: var(--main-margin-mobile);
         padding-left: 0;
         padding-right: 0;
     }
-    .slide {
+    /* .slide {
         padding-left: 5vw;
         padding-right: 5vw;
-    }
+    } */
     
 }
