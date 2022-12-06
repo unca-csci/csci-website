@@ -12,17 +12,23 @@ window.CourseBrowser = class {
     courses = { };
 
     constructor () {
-        document.querySelector('#term').addEventListener('change', this.fetchCourses.bind(this));
+        document.querySelector('#term').addEventListener('change', this.fetchAndDisplay.bind(this));
     }
 
-    async fetchCourses() {
+    async fetchCourses () {
         const baseScheduleUrl = 'https://meteor.unca.edu/registrar/class-schedules/api/v1/courses/';
         document.querySelector('#course-list').innerHTML = "Searching...";
         const termUrl = document.querySelector('#term').value;
         const url = baseScheduleUrl + termUrl;
-        const data = await fetch(url).then(response => response.json());
-        this.displayResults(data);
-    }  
+        return await fetch(url).then(response => response.json());
+    }
+
+    async fetchAndDisplay () {
+        console.log('fetch and display...');
+        const courses = await this.fetchCourses();
+        console.log(courses);
+        this.displayResults(courses);
+    }
 
 
     async displayResults(courseList) {

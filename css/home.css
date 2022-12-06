@@ -52,4 +52,10 @@
         padding: 40px;
         align-items: center;
     }
+
+    .home-container {
+        display: grid;
+        grid-template-columns: auto;
+        row-gap: 50px;
+    }
 }
