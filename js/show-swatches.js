@@ -24,6 +24,7 @@ const colors = [
 const changeColor = (idx) => {
     const colorProp = colors[idx];
     document.querySelector('.main-header').style.backgroundColor = `var(${colorProp})`; 
+    document.querySelector('.main-header nav ul').style.backgroundColor = `var(${colorProp})`; 
     
     // change color of text:
     let colorVal = getComputedStyle(document.documentElement).getPropertyValue(colorProp).trim();
