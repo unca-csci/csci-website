@@ -29,9 +29,7 @@
     --bg-img2: url(https://png.pngtree.com/background/20210714/original/pngtree-vector-abstract-futuristic-digital-landscape-with-particles-dots-and-stars-on-picture-image_1240800.jpg);
 
 }
-html {
-    scroll-behavior: smooth;
-}
+
 body {
     font-family: 'Lora', serif;
     margin: 0;
