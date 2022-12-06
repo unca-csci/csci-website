@@ -109,12 +109,6 @@ footer {
     height: 25px;
 }
 
-@media screen and (max-width: 1200px) {
-    main {
-        padding-left: 0;
-        padding-right: 0;
-    }
-}
 @media screen and (max-width: 1050px) {
     .main-header {
         padding: 1vh 3vw;

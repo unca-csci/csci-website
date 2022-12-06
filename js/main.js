@@ -2,7 +2,7 @@ let storedHash;
 let currentPanelIndex = 1;
 let scrollPosition = 0;
 let clearSlides;
-pageConfig = {
+const pageConfig = {
     "home": {
         "main": "home.tpl",
         "slideNum": 1
@@ -43,7 +43,6 @@ pageConfig = {
         "slideNum": 6 
     }
 }
-// const pages = ['course-schedule', 'student-projects', 'course-map'];
 
 const showSection = async (page) => {
     let prevIndex = currentPanelIndex;
@@ -175,7 +174,6 @@ initPage();
 window.setInterval(function () {
     if (window.location.hash != storedHash) {
         storedHash = window.location.hash;
-        console.log('UPDATE!!');
         showPage();
     }
 }, 100);

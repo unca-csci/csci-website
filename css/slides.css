@@ -14,6 +14,10 @@
     flex: 1 0 100%;
 }
 
+.slide h2, .slide h3 {
+    scroll-margin-top: 190px;
+}
+
 .slide-content {
     padding-left: 5vw;
     padding-right: 5vw;
@@ -25,6 +29,11 @@
 }
 
 
+@media screen and (max-width: 1050px) {
+    .slide h1, .slide h2, .slide h3, .slide h4 {
+        scroll-margin-top: 90px;
+    } 
+}
 
 @media screen and (max-width: 900px) {
     .slides-container {
