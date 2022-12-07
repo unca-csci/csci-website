@@ -50,3 +50,5 @@
         <h2>Data Science</h2>
     </div>
 </section>
+
+<script src="./js/cs-areas.js"></script>

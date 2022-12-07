@@ -1,0 +1,54 @@
+{
+    "home": {
+        "title": "Welcome to the UNCA Computer Science Department",
+        "main": "home.tpl",
+        "layout": "landing-page.tpl",
+        "aside": "news-snippet.tpl",
+        "slideNum": 1
+    },
+    "news": {
+        "title": "News",
+        "main": "news.tpl",
+        "slideNum": 2
+    },
+    "people": {
+        "title": "People",
+        "main": "people.tpl",
+        "slideNum": 3
+    },
+    "areas": {
+        "title": "CS Areas",
+        "main": "areas.tpl",
+        "aside": "areas-snippet.tpl",
+        "layout": "two-column.tpl",
+        "slideNum": 4 
+    },
+    "curriculum": {
+        "title": "Our Programs",
+        "main": "curriculum.tpl",
+        "aside": "curriculum-menu.tpl",
+        "layout": "two-column.tpl",
+        "slideNum": 5 
+    },
+    "course-schedule": {
+        "title": "Course Schedule",
+        "main": "course-schedule.tpl",
+        "aside": "curriculum-menu.tpl",
+        "layout": "two-column.tpl",
+        "slideNum": 5
+    },
+    "course-map": {
+        "title": "Course Offerings",
+        "main": "course-map.tpl",
+        "aside": "curriculum-menu.tpl",
+        "layout": "two-column.tpl",
+        "slideNum": 5
+    },
+    "student-projects": {
+        "title": "Student Projects",
+        "main": "student-projects.tpl",
+        "aside": "curriculum-menu.tpl",
+        "layout": "two-column.tpl",
+        "slideNum": 5
+    }
+}

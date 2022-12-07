@@ -51,7 +51,6 @@
     border-bottom: solid 1px var(--link-color);
 }
 
-
 .slide-content.two-column aside article {
     background-color: #F0F0F0;
     padding-top: 10px;
@@ -97,7 +96,6 @@
 .mobile {
     display: none;
 }
-
 
 @media screen and (max-width: 1050px) {
     .slide h1, .slide h2, .slide h3, .slide h4 {

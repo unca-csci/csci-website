@@ -2,98 +2,57 @@ let storedHash;
 let currentPanelIndex = 1;
 let scrollPosition = 0;
 let clearSlides;
-const pageConfig = {
-    "home": {
-        "title": "Welcome to the UNCA Computer Science Department",
-        "main": "home.tpl",
-        "layout": "landing-page.tpl",
-        "aside": "news-snippet.tpl",
-        "slideNum": 1
-    },
-    "news": {
-        "title": "News",
-        "main": "news.tpl",
-        "slideNum": 2
-    },
-    "people": {
-        "title": "People",
-        "main": "people.tpl",
-        "slideNum": 3
-    },
-    "areas": {
-        "title": "CS Areas",
-        "main": "areas.tpl",
-        "aside": "areas-snippet.tpl",
-        "layout": "two-column.tpl",
-        "slideNum": 4 
-    },
-    "curriculum": {
-        "title": "Our Programs",
-        "main": "curriculum.tpl",
-        "aside": "curriculum-menu.tpl",
-        "layout": "two-column.tpl",
-        "slideNum": 5 
-    },
-    "course-schedule": {
-        "title": "Course Schedule",
-        "main": "course-schedule.tpl",
-        "aside": "curriculum-menu.tpl",
-        "layout": "two-column.tpl",
-        "slideNum": 5
-    },
-    "course-map": {
-        "title": "Course Offerings",
-        "main": "course-map.tpl",
-        "aside": "curriculum-menu.tpl",
-        "layout": "two-column.tpl",
-        "slideNum": 5
-    },
-    "student-projects": {
-        "title": "Student Projects",
-        "main": "student-projects.tpl",
-        "aside": "curriculum-menu.tpl",
-        "layout": "two-column.tpl",
-        "slideNum": 5
-    }
-}
+let pageConfig;
+
+const initPage = async () => {
+    await loadPageConfig();
+    initNavigation();
+    loadFirstPage();
+};
 
 const showSection = async (page) => {
     let prevIndex = currentPanelIndex;
     currentPanelIndex = page.slideNum;
-    const slideEl = document.querySelector(`#panel-${currentPanelIndex}`);
+    const slideId = `#panel-${currentPanelIndex}`;
+    document.querySelector(slideId).innerHTML = "";
     
     // insert layout:
     const layoutTemplateFile = page.layout || 'one-column.tpl';
-    const layoutHtml = await fetch(`./layouts/${layoutTemplateFile}`).then(response => response.text());
-    const layoutTemplate = eval('`' + layoutHtml + '`');
-    console.log(layoutTemplate);
-    slideEl.innerHTML = layoutTemplate;
+    await renderTemplate(slideId, `./layouts/${layoutTemplateFile}`, page);
+
 
     // append main content:
-    const mainTemplateFile = page.main;
-    const contentArea = slideEl.querySelector('.content');
-    const contentHtml = await fetch(`./templates/${mainTemplateFile}`).then(response => response.text());
-    const contentTemplate = eval('`' + contentHtml + '`');
-    console.log(contentTemplate);
-    contentArea.insertAdjacentHTML('beforeend', contentTemplate);
+    await renderTemplate(`${slideId} .content`, `./templates/${page.main}`, page);
 
     // append aside content (if applicable):
-    const asideTemplateFile = page.aside;
-    const asideArea = slideEl.querySelector('aside');
-    if (page.aside && asideArea) {
-        const asideHTML = await fetch(`./templates/${asideTemplateFile}`).then(response => response.text());
-        const asideTemplate = eval('`' + asideHTML + '`');
-        asideArea.insertAdjacentHTML('beforeend', asideTemplate);
+    if (page.aside) {
+        await renderTemplate(`${slideId} aside`, `./templates/${page.aside}`, page);
     }
 
-    document.querySelector('nav').classList.remove('show');
-    injectScriptIfExists(contentHtml, slideEl);
+    injectScriptIfExists(slideId);
     setPosition();
-     
     clearOldSlide(prevIndex);
+    document.querySelector('.main-nav').classList.remove('show');
 };
 
-const injectScriptIfExists = (html, containerEl) => {
+const renderTemplate = async (selector, templateFile, page) => {
+    // const mainTemplateFile = page.main;
+    const el = document.querySelector(selector);
+    if (!el) {
+        console.error("Target", selector, "not found.");
+        return;
+    }
+    console.log(templateFile);
+    const html = await fetch(templateFile).then(response => response.text());
+    console.log(el, html);
+    const template = eval('`' + html + '`');
+    el.insertAdjacentHTML('beforeend', template);
+}
+
+// const injectScriptIfExists = (html, containerEl) => {
+const injectScriptIfExists = (selector) => {
+    const el = document.querySelector(selector);
+    const html = el.innerHTML;
     const regex =  /<script[\s\S]*?>[\s\S]*?<\/script>/gi;
     const matches = html.match(regex);
     if (matches && matches.length > 0) {
@@ -101,40 +60,13 @@ const injectScriptIfExists = (html, containerEl) => {
             let path = match.split("\"")[1];
             var script = document.createElement('script');
             script.setAttribute('src',path);
-            containerEl.appendChild(script);
+            el.appendChild(script);
         })
     }
 };
 
-const showLightbox = fileName => {
-    const lightboxEl = document.querySelector('#lightbox');
-    fetch(`./templates/${fileName}`)
-        .then(response => response.text())
-        .then(html => {
-            lightboxEl.querySelector('.content').innerHTML = html;
-            lightboxEl.classList.add('show');
-            document.body.style.overflowY = 'hidden';
-        })
-};
-
-const hideLightbox = ev => {
-    const classList = ev.target.classList;
-    let doClose = false;
-    classList.forEach(className => {
-        if (['fa-times', 'close', 'close-icon', 'show'].includes(className)) {
-            doClose = true;
-            return;
-        }
-    })
-    if (!doClose) {return};
-    const lightboxEl = document.querySelector('#lightbox');
-    lightboxEl.classList.remove('show');
-    document.body.style.overflowY = 'scroll';
-};
-
-const initPage = () => {
-    initNavigation();
-    loadFirstPage();
+const loadPageConfig = async () => {
+    pageConfig = await fetch('data/pages.json').then(response => response.json());
 };
 
 const setPosition = () => {
