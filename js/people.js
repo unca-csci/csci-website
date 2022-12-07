@@ -39,30 +39,29 @@ window.People = class {
     toHTML (person) {
         return `
             <section class="person">
-                <div>
-                    <h2>${person.name}</h2>
+                <h2>${person.name}</h2>
+                ${ this.getPic(person) }
+                <div class="info">
                     <p class="title">${person.title}</p>
                     <p class="contact-info"><i class="fa-regular fa-envelope"></i> ${person.email}</p>
                     ${ this.getAddress(person) }
-                    ${ this.getPhone(person) }
-                </div>
-                ${ this.getPic(person) }
-                
+                    ${ this.getPhone(person) }    
+                </div>            
                 <p class="interests">${person.interests || ""}</p>
             </section>
         `;
     }
 
     getPic(person) {
-        return person.image_url ? `<img src="${person.image_url}" />` : "";
+        return person.image_url ? `<img src="${person.image_url}" />` : "<p></p>";
     } 
 
     getAddress(person) {
-        return person.address ? `<p class="contact-info"><i class="fa-solid fa-location-dot"></i> ${person.address}</p>` : "";
+        return person.address ? `<p class="contact-info"><i class="fa-solid fa-location-dot"></i> ${person.address}</p>` : "<p></p>";
     } 
     
     getPhone(person) {
-        return person.phone ? `<p class="contact-info"><i class="fa-solid fa-phone"></i> ${person.phone}</p>` : "";
+        return person.phone ? `<p class="contact-info"><i class="fa-solid fa-phone"></i> ${person.phone}</p>` : "<p></p>";
     }
 }
 
