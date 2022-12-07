@@ -42,7 +42,6 @@
 .slide-content .content a:active {
     color: var(--link-color);
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
     border-bottom: solid 1px transparent;
     font-weight: 500;
 }

@@ -19,7 +19,7 @@ const initPage = async () => {
         }
     }, 100);
     
-    window.onresize = setPosition;
+    // window.onresize = setPosition;
 };
 
 const showSection = async (page) => {
