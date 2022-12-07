@@ -13,14 +13,16 @@
     --frost-gray: #D9D9D6;
     --steel-gray: #C8C9C7;
     --stone-gray: #888B8D;
+    --dark-gray: #5b5d5e;
     --honeybee: #EBBC4E;
     --autumn: #E6A65D;
     --clay: #C26E60;
-    --banner-text-color: white;
-    --banner-bg-color: #003865;
     --gold: #BD9B60;
     --chestnut: #7C4D3A;
     --maple: #A6192E;
+    --banner-text-color: white;
+    --banner-bg-color: var(--night-sky);
+    --link-color: var(--maple);
     --banner-one-height: 50px;
     --banner-two-height: 120px;
     --banner-two-height-mobile: 70px;
@@ -28,6 +30,10 @@
     --main-margin-mobile: 70px;
     --bg-img2: url(https://png.pngtree.com/background/20210714/original/pngtree-vector-abstract-futuristic-digital-landscape-with-particles-dots-and-stars-on-picture-image_1240800.jpg);
 
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -39,6 +45,20 @@ body {
 h1, h2, h3, h4 {
     font-family: 'Poppins', sans-serif;
     color: #000;
+}
+
+h2 {
+    margin: 50px 0px 0px 0px;
+    font-size: 1.8em;
+    font-weight: 600;
+    color: var(--night-sky);
+}
+
+h3 {
+    font-size: 1.6em;
+    margin: 50px 0px 0px 0px;
+    font-weight: 400;
+    color: var(--dark-gray);
 }
 
 p, li {
@@ -64,9 +84,6 @@ main h1 {
     font-size: 2em;
 }
 
-h2 {
-    font-weight: 300;
-}
 
 
 footer {

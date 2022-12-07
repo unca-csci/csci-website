@@ -23,6 +23,8 @@ const pageConfig = {
     "areas": {
         "title": "CS Areas",
         "main": "areas.tpl",
+        "aside": "areas-snippet.tpl",
+        "layout": "two-column.tpl",
         "slideNum": 4 
     },
     "curriculum": {
@@ -40,7 +42,7 @@ const pageConfig = {
         "slideNum": 5
     },
     "course-map": {
-        "title": "Course Map",
+        "title": "Course Offerings",
         "main": "course-map.tpl",
         "aside": "curriculum-menu.tpl",
         "layout": "two-column.tpl",
@@ -50,6 +52,7 @@ const pageConfig = {
         "title": "Student Projects",
         "main": "student-projects.tpl",
         "aside": "curriculum-menu.tpl",
+        "layout": "two-column.tpl",
         "slideNum": 5
     }
 }
@@ -58,30 +61,32 @@ const showSection = async (page) => {
     let prevIndex = currentPanelIndex;
     currentPanelIndex = page.slideNum;
     const slideEl = document.querySelector(`#panel-${currentPanelIndex}`);
-    const layoutTemplateFile = page.layout || 'one-column.tpl';
+    
     // insert layout:
+    const layoutTemplateFile = page.layout || 'one-column.tpl';
     const layoutHtml = await fetch(`./layouts/${layoutTemplateFile}`).then(response => response.text());
     const layoutTemplate = eval('`' + layoutHtml + '`');
     console.log(layoutTemplate);
     slideEl.innerHTML = layoutTemplate;
 
     // append main content:
+    const mainTemplateFile = page.main;
     const contentArea = slideEl.querySelector('.content');
-    const contentHtml = await fetch(`./templates/${page.main}`).then(response => response.text());
+    const contentHtml = await fetch(`./templates/${mainTemplateFile}`).then(response => response.text());
     const contentTemplate = eval('`' + contentHtml + '`');
     console.log(contentTemplate);
     contentArea.insertAdjacentHTML('beforeend', contentTemplate);
 
     // append aside content (if applicable):
+    const asideTemplateFile = page.aside;
     const asideArea = slideEl.querySelector('aside');
     if (page.aside && asideArea) {
-        const asideHTML = await fetch(`./templates/${page.aside}`).then(response => response.text());
+        const asideHTML = await fetch(`./templates/${asideTemplateFile}`).then(response => response.text());
         const asideTemplate = eval('`' + asideHTML + '`');
         asideArea.insertAdjacentHTML('beforeend', asideTemplate);
     }
 
     document.querySelector('nav').classList.remove('show');
-
     injectScriptIfExists(contentHtml, slideEl);
     setPosition();
      

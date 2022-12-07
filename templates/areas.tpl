@@ -1,5 +1,4 @@
 
-<p>Some text about the areas of computer science that students can learn more about.</p>
 <div class="areas">
 <section class="hci" onclick="showLightbox('hci.tpl')">
     <div class="overlay-box">

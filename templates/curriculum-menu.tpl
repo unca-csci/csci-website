@@ -1,7 +1,7 @@
 <article>
-    <h3>About Our Programs</h3>
+    <h2>Learning CS at UNCA</h2>
     <ul>
-        <li><a href="#curriculum">Overview</a></li>
+        <li><a href="#curriculum">Our Programs</a></li>
         <li><a href="#course-map">Course Offerings</a></li>
         <li><a href="#">Sample Schedules</a></li>
         <li><a href="#course-schedule">Course Schedule</a></li>

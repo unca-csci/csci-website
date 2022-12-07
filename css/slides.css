@@ -35,6 +35,22 @@
     padding-top: 30px;
 }
 
+.slide-content .content a, 
+.slide-content .content a:link, 
+.slide-content .content a:hover, 
+.slide-content .content a:active {
+    color: var(--link-color);
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    border-bottom: solid 1px transparent;
+    font-weight: 500;
+}
+
+.slide-content .content a:hover {
+    border-bottom: solid 1px var(--link-color);
+}
+
+
 .slide-content.two-column aside article {
     background-color: #F0F0F0;
     padding-top: 40px;
@@ -42,6 +58,12 @@
     padding-left: 30px;
     padding-right: 30px;
     margin-bottom: 50px;
+}
+
+.slide-content.two-column aside article h2 {
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 1.5em;
 }
 
 .slide-content.two-column aside ul {

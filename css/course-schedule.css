@@ -2,12 +2,12 @@
     padding-top: 30px;
 } */
 
-#course-list, #student-projects {
+/* #course-list, #student-projects {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 50px;
     row-gap: 50px;
-}
+} */
 
 #course-list p, 
 #course-list li {
@@ -39,11 +39,10 @@ i.fa-solid.fa-chevron-right {
     margin-left: -13px;
 }
 
-.courses select,
-.projects select {
+.content select {
     border: solid 1px #CCC;
     border-radius: 4px;
-    margin-left: 40px;
+    /* margin-left: 40px; */
     padding: 10px 25px;
     font-size: 1.2em;
     -webkit-appearance: none;
@@ -52,8 +51,8 @@ i.fa-solid.fa-chevron-right {
     background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") white no-repeat 96% !important;
 }
   
-.courses select::-ms-expand,
-.projects select::-ms-expand { display: none; }
+.content select::-ms-expand,
+.content select::-ms-expand { display: none; }
 
 /* #course-list p {
     margin: 0;
@@ -75,11 +74,4 @@ i.fa-solid.fa-chevron-right {
 
 strong {
     font-weight: 600;
-}
-
-section.course, section.project {
-    border: solid 1px #DDD;
-    padding: 25px;
-    margin: 2px;
-    border-radius: 4px;
 }

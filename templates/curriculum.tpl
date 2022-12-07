@@ -1,10 +1,11 @@
 <!-- <h1>Degrees & Degree Requirements</h1>-->
 
 <p>
-    The Department of Computer Science offers a <strong>CS Minor</strong> and a <strong>CS Major</strong> 
+    The Department of Computer Science offers a <strong>CS Major</strong> 
     with two different concentrations: 
     <a href="#_sys">Computer Systems</a> and 
-    <a href="#_infosys">Information Systems</a>.
+    <a href="#_infosys">Information Systems</a>. We also offer a 
+    <a href="#_minor">CS Minor</a>.
 </p>
 <h2>The Computer Science Major</h2>
 
@@ -54,7 +55,7 @@
         target="_blank">more information.</a>
 </p>
 
-<h2>The Computer Science Minor</h2>
+<h2 id="_minor">The Computer Science Minor</h2>
 <p>The CSCI Minor consists of 21 credit hours. Specifically, students must successfully complete:</p>
 <ul>
     <li>
