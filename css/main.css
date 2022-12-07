@@ -59,11 +59,13 @@ h3 {
     margin: 50px 0px 0px 0px;
     font-weight: 400;
     color: var(--dark-gray);
+    border-bottom: solid 1px var(--dark-gray);
 }
 
 p, li {
     line-height: 1.6em;
     margin: 8px 0px;
+    font-size: 1.15em;
 }
 
 body * {

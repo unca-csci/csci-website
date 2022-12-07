@@ -17,6 +17,7 @@
 
 .slide h2, .slide h3 {
     scroll-margin-top: 190px;
+    border-bottom: solid 1px transparent;
 }
 
 .slide-content {
@@ -52,6 +53,14 @@
 
 
 .slide-content.two-column aside article {
+    background-color: #F0F0F0;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 50px;
+}
+.slide-content.two-column aside article:first-child {
     background-color: #F0F0F0;
     padding-top: 40px;
     padding-bottom: 50px;
@@ -96,6 +105,19 @@
     } 
     .home-container {
         grid-template-columns: auto;
+    }
+    .slide-content.two-column {
+        display: grid;
+        grid-template-columns: auto;
+        column-gap: 50px;
+        align-items: start;
+    }
+    .slide-content .content {
+        padding-top: 0px;
+        grid-row-start: 2;
+    }
+    .slide-content aside {
+        grid-row-start: 1;
     }
 }
 

@@ -44,18 +44,19 @@
         background-attachment: initial;
     }
     .bg-landing .info-box {
-        display: flex;
-        background: #FFFFFFDD;
-        height: 100%;
-        width: 100%;
-        justify-content: center;
-        padding: 40px;
-        align-items: center;
+        display: none;
     }
 
-    /* .home-container {
-        display: grid;
-        grid-template-columns: auto;
-        row-gap: 50px;
-    } */
+    .landing .content {
+        grid-row-start: 1;
+    }
+    .slide-content.landing aside {
+        grid-row-start: 2;
+        margin-top: 40px;
+    }
+
+    .slide-content.landing aside article:first-child {
+        padding-top: 10px;
+    }
+    
 }
