@@ -1,1 +1,4 @@
-<p>Text text text text </p>
+<div class="people"></div>
+
+
+<script src="./js/people.js"></script>

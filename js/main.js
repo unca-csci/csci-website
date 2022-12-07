@@ -8,6 +8,18 @@ const initPage = async () => {
     await loadPageConfig();
     initNavigation();
     loadFirstPage();
+
+    // add event handlers:
+    window.setInterval(function () {
+        if (window.location.hash != storedHash) {
+            // temporarily disable scroll behavior:
+            document.querySelector('html').style.scrollBehavior = "auto";
+            storedHash = window.location.hash;
+            showPage();
+        }
+    }, 100);
+    
+    window.onresize = setPosition;
 };
 
 const showSection = async (page) => {
@@ -102,7 +114,6 @@ const clearOldSlide = (prevIndex) => {
 }
 
 const initNavigation = () => {
-    console.log("initNavigation");
     const containerEl = document.querySelector('.slides-container');
     const links = document.querySelectorAll('ul a');
     links.forEach((link, idx) => {
@@ -137,14 +148,3 @@ const toggleMenu = ev => {
 }
 
 initPage();
-
-window.setInterval(function () {
-    if (window.location.hash != storedHash) {
-        // temporarily disable scroll behavior:
-        document.querySelector('html').style.scrollBehavior = "auto";
-        storedHash = window.location.hash;
-        showPage();
-    }
-}, 100);
-
-window.onresize = setPosition;

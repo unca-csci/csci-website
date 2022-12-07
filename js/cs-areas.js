@@ -1,4 +1,7 @@
-const showLightbox = fileName => {
+delete window.showLightbox;
+delete window.hideLightbox;
+
+window.showLightbox = fileName => {
     const lightboxEl = document.querySelector('#lightbox');
     fetch(`./templates/${fileName}`)
         .then(response => response.text())
@@ -9,7 +12,7 @@ const showLightbox = fileName => {
         })
 };
 
-const hideLightbox = ev => {
+window.hideLightbox = ev => {
     const classList = ev.target.classList;
     let doClose = false;
     classList.forEach(className => {
