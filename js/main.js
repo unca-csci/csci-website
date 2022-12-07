@@ -150,6 +150,7 @@ const setPosition = () => {
     // scroll:
     scrollPosition = slideEl.clientWidth * (currentPanelIndex - 1);
     containerEl.scrollTo(scrollPosition, 0);
+    document.querySelector('html').style.scrollBehavior = "smooth";
 };
 
 const clearOldSlide = (prevIndex) => {
@@ -207,6 +208,8 @@ initPage();
 
 window.setInterval(function () {
     if (window.location.hash != storedHash) {
+        // temporarily disable scroll behavior:
+        document.querySelector('html').style.scrollBehavior = "auto";
         storedHash = window.location.hash;
         showPage();
     }
