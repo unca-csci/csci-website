@@ -42,3 +42,9 @@
     border-radius: 50%;
     max-width: 150px;
 }
+
+@media screen and (max-width: 1050px) {
+    .people {
+        grid-template-columns: auto;
+    }
+}

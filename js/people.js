@@ -18,7 +18,6 @@ window.People = class {
         const data = await fetch(url, {
                 referrer: "https://unca-csci.github.io/csci-website"
             }).then(response => response.json());
-        // console.log(data);
         const keys = data.values.shift();
         this.people = data.values.map(row => {
             const item = {};
