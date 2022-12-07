@@ -24,14 +24,13 @@ window.CourseBrowser = class {
     }
 
     async fetchAndDisplay () {
-        console.log('fetch and display...');
         const courses = await this.fetchCourses();
-        console.log(courses);
         this.displayResults(courses);
     }
 
 
     async displayResults(courseList) {
+        console.log('displaying results!');
         document.querySelector('#course-list').innerHTML = "";
         // access the #results section and put the course title into it. 
         let termUrl;
@@ -115,4 +114,4 @@ window.CourseBrowser = class {
 }
 
 window.browser = new CourseBrowser();
-browser.fetchCourses();
+browser.fetchAndDisplay();

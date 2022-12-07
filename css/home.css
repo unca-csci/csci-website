@@ -1,10 +1,10 @@
 
-.home-container {
+/* .home-container {
     display: grid;
     grid-template-columns: auto 30vw;
     column-gap: 50px;
     align-items: start;
-}
+} */
 
 .bg-landing {
     /* background-image: url('../images/landing-1.jpeg'); */
@@ -53,9 +53,9 @@
         align-items: center;
     }
 
-    .home-container {
+    /* .home-container {
         display: grid;
         grid-template-columns: auto;
         row-gap: 50px;
-    }
+    } */
 }

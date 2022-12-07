@@ -4,43 +4,53 @@ let scrollPosition = 0;
 let clearSlides;
 const pageConfig = {
     "home": {
+        "title": "Welcome to the UNCA Computer Science Department",
         "main": "home.tpl",
+        "layout": "landing-page.tpl",
+        "aside": "news-snippet.tpl",
         "slideNum": 1
     },
     "news": {
+        "title": "News",
         "main": "news.tpl",
         "slideNum": 2
     },
     "people": {
+        "title": "People",
         "main": "people.tpl",
         "slideNum": 3
     },
     "areas": {
+        "title": "CS Areas",
         "main": "areas.tpl",
         "slideNum": 4 
     },
     "curriculum": {
+        "title": "Our Programs",
         "main": "curriculum.tpl",
+        "aside": "curriculum-menu.tpl",
+        "layout": "two-column.tpl",
         "slideNum": 5 
     },
     "course-schedule": {
+        "title": "Course Schedule",
         "main": "course-schedule.tpl",
         "aside": "curriculum-menu.tpl",
+        "layout": "two-column.tpl",
         "slideNum": 5
     },
     "course-map": {
+        "title": "Course Map",
         "main": "course-map.tpl",
         "aside": "curriculum-menu.tpl",
+        "layout": "two-column.tpl",
         "slideNum": 5
     },
     "student-projects": {
+        "title": "Student Projects",
         "main": "student-projects.tpl",
         "aside": "curriculum-menu.tpl",
         "slideNum": 5
-    },
-    "courses": {
-        "main": "courses.tpl",
-        "slideNum": 6 
     }
 }
 
@@ -48,12 +58,31 @@ const showSection = async (page) => {
     let prevIndex = currentPanelIndex;
     currentPanelIndex = page.slideNum;
     const slideEl = document.querySelector(`#panel-${currentPanelIndex}`);
-    const html = await fetch(`./templates/${page.main}`).then(response => response.text());
+    const layoutTemplateFile = page.layout || 'one-column.tpl';
+    // insert layout:
+    const layoutHtml = await fetch(`./layouts/${layoutTemplateFile}`).then(response => response.text());
+    const layoutTemplate = eval('`' + layoutHtml + '`');
+    console.log(layoutTemplate);
+    slideEl.innerHTML = layoutTemplate;
 
-    slideEl.innerHTML = html;
+    // append main content:
+    const contentArea = slideEl.querySelector('.content');
+    const contentHtml = await fetch(`./templates/${page.main}`).then(response => response.text());
+    const contentTemplate = eval('`' + contentHtml + '`');
+    console.log(contentTemplate);
+    contentArea.insertAdjacentHTML('beforeend', contentTemplate);
+
+    // append aside content (if applicable):
+    const asideArea = slideEl.querySelector('aside');
+    if (page.aside && asideArea) {
+        const asideHTML = await fetch(`./templates/${page.aside}`).then(response => response.text());
+        const asideTemplate = eval('`' + asideHTML + '`');
+        asideArea.insertAdjacentHTML('beforeend', asideTemplate);
+    }
+
     document.querySelector('nav').classList.remove('show');
 
-    injectScriptIfExists(html, slideEl);
+    injectScriptIfExists(contentHtml, slideEl);
     setPosition();
      
     clearOldSlide(prevIndex);
