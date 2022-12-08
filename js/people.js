@@ -32,13 +32,22 @@ window.People = class {
     display() {
         document.querySelector(".people")
             .insertAdjacentHTML('beforeend', 
-                this.people.map(person => this.toHTML(person)).join('\n')
+                this.people.map((person, i) => this.toHTML(person, i)).join('\n')
             );
     }
 
-    toHTML (person) {
+    onKeyUp(e, template) {
+        if (e.key === "Enter") {
+            showLightboxPeople(template);
+        }
+    }
+
+    toHTML (person, i) {
+        // tabindex and onkeyup for accessibility:
         return `
-            <section class="person" onclick="showLightboxPeople('${person.detail_url}')">
+            <section tabindex="${i+10}" class="person" 
+                onclick="showLightboxPeople('${person.detail_url}')"
+                onkeyup="peopleDisplay.onKeyUp(event, '${person.detail_url}')">
                 <h2>${person.name}</h2>
                 ${ this.getPic(person) }
                 <div class="info">

@@ -55,12 +55,12 @@ const showSwatches = () => {
     document.body.insertAdjacentHTML('beforeend', `<div class="colors">${html}</div>`);
 };
 
-document.body.onkeydown = function(e) {
-    if (e.key === " " || e.code === "Space" || e.keyCode === 32) {
-        const i = Math.floor(Math.random() * colors.length);
-        changeColor(i);
-    }
-    e.preventDefault();
-}
+// document.body.onkeydown = function(e) {
+//     if (e.key === " " || e.code === "Space" || e.keyCode === 32) {
+//         const i = Math.floor(Math.random() * colors.length);
+//         changeColor(i);
+//     }
+//     e.preventDefault();
+// }
 
 showSwatches();

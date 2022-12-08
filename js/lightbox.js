@@ -10,6 +10,7 @@ window.showLightbox = async fileName => {
     lightboxEl.querySelector('.content').innerHTML = html;
     lightboxEl.classList.add('show');
     document.body.style.overflowY = 'hidden';
+    lightboxEl.querySelector('#close').focus();
     lightboxEl.classList.remove('people-detail');
 };
 

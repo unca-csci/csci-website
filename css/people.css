@@ -19,11 +19,18 @@
 
 .person {
     display: grid;
-    grid-template-columns: auto 150px;
+    grid-template-columns: auto 175px;
     grid-template-rows: repeat(3, auto);
     column-gap: 20px;
     background-color: #F6F6F6;
     padding: 10px 20px;
+    border: solid 2px transparent;
+}
+.person:hover, .person:focus, .person:focus-visible,
+#close:hover, #close:focus, #close:focus-visible {
+    border: solid 2px var(--bright-blue);
+    cursor: pointer;
+    outline: 0px;
 }
 
 .person p {
@@ -54,7 +61,7 @@
 
 .person img {
     border-radius: 50%;
-    max-width: 150px;
+    max-width: 100%;
     grid-column: 2 / 3;
     grid-row: 1 / 4;
     align-self: center;
