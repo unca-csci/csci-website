@@ -61,9 +61,7 @@ const renderTemplate = async (selector, templateFile, page) => {
         console.error("Target", selector, "not found.");
         return;
     }
-    console.log(templateFile);
     const html = await fetch(templateFile).then(response => response.text());
-    console.log(el, html);
     const template = eval('`' + html + '`');
     el.insertAdjacentHTML('beforeend', template);
 }
