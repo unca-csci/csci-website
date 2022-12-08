@@ -1,54 +1,54 @@
 {
     "home": {
         "title": "Welcome to the UNCA Computer Science Department",
-        "main": "home.tpl",
-        "layout": "landing-page.tpl",
-        "aside": "news-snippet.tpl",
+        "main": "pages/home.html",
+        "layout": "layouts/landing-page.html",
+        "aside": "pages/news-snippet.html",
         "slideNum": 1
     },
     "news": {
         "title": "News",
-        "main": "news.tpl",
+        "main": "pages/news.html",
         "slideNum": 2
     },
     "people": {
         "title": "People",
-        "main": "people.tpl",
+        "main": "pages/people.html",
         "slideNum": 3
     },
     "areas": {
         "title": "CS Areas",
-        "main": "areas.tpl",
-        "aside": "areas-snippet.tpl",
-        "layout": "two-column.tpl",
+        "main": "pages/areas.html",
+        "aside": "pages/areas-snippet.html",
+        "layout": "layouts/two-column.html",
         "slideNum": 4 
     },
     "curriculum": {
         "title": "Our Programs",
-        "main": "curriculum.tpl",
-        "aside": "curriculum-menu.tpl",
-        "layout": "two-column.tpl",
+        "main": "pages/curriculum.html",
+        "aside": "pages/curriculum-menu.html",
+        "layout": "layouts/two-column.html",
         "slideNum": 5 
     },
     "course-schedule": {
         "title": "Course Schedule",
-        "main": "course-schedule.tpl",
-        "aside": "curriculum-menu.tpl",
-        "layout": "two-column.tpl",
+        "main": "pages/course-schedule.html",
+        "aside": "pages/curriculum-menu.html",
+        "layout": "layouts/two-column.html",
         "slideNum": 5
     },
     "course-map": {
         "title": "Course Offerings",
-        "main": "course-map.tpl",
-        "aside": "curriculum-menu.tpl",
-        "layout": "two-column.tpl",
+        "main": "pages/course-map.html",
+        "aside": "pages/curriculum-menu.html",
+        "layout": "layouts/two-column.html",
         "slideNum": 5
     },
     "student-projects": {
         "title": "Student Projects",
-        "main": "student-projects.tpl",
-        "aside": "curriculum-menu.tpl",
-        "layout": "two-column.tpl",
+        "main": "pages/student-projects.html",
+        "aside": "pages/curriculum-menu.html",
+        "layout": "layouts/two-column.html",
         "slideNum": 5
     }
 }

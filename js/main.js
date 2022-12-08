@@ -29,8 +29,8 @@ const showSection = async (page) => {
     document.querySelector(slideId).innerHTML = "";
     
     // insert layout:
-    const layoutTemplateFile = page.layout || 'one-column.tpl';
-    await renderTemplate(slideId, `./layouts/${layoutTemplateFile}`, page);
+    const layoutTemplateFile = page.layout || 'layouts/one-column.html';
+    await renderTemplate(slideId, `./templates/${layoutTemplateFile}`, page);
 
 
     // append main content:

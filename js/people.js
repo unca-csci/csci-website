@@ -38,7 +38,7 @@ window.People = class {
 
     toHTML (person) {
         return `
-            <section class="person">
+            <section class="person" onclick="showLightbox('${person.detail_url}')">
                 <h2>${person.name}</h2>
                 ${ this.getPic(person) }
                 <div class="info">
