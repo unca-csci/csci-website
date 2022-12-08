@@ -30,16 +30,16 @@
         "layout": "layouts/two-column.html",
         "slideNum": 5 
     },
-    "course-schedule": {
-        "title": "Course Schedule",
-        "main": "pages/course-schedule.html",
+    "class-schedule": {
+        "title": "Schedule of Classes",
+        "main": "pages/class-schedule.html",
         "aside": "pages/curriculum-menu.html",
         "layout": "layouts/two-column.html",
         "slideNum": 5
     },
-    "course-map": {
-        "title": "Course Offerings",
-        "main": "pages/course-map.html",
+    "courses": {
+        "title": "Courses & Requirements",
+        "main": "pages/courses.html",
         "aside": "pages/curriculum-menu.html",
         "layout": "layouts/two-column.html",
         "slideNum": 5

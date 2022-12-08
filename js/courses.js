@@ -10,99 +10,71 @@ delete window.browser;
 
 window.CourseBrowser = class {
     courses = { };
-
-    constructor () {
-        document.querySelector('#term').addEventListener('change', this.fetchAndDisplay.bind(this));
+    
+    constructor() {
+        this.key = 'AIzaSyDsr4u1uupvnmDSfJdfgHZN2IWROiihlP8';
+        this.spreadsheetId = '1Q11Q_uJxCsnwMSpjMn3kCQTzRIXB0NkGBeQQL5CO6y4';
+        this.courses = {};
+        this.areas = {};
+        this.courses1 = {};
     }
 
-    async fetchCourses () {
-        const baseScheduleUrl = 'https://meteor.unca.edu/registrar/class-schedules/api/v1/courses/';
+    async fetchCourses() {
+        const url = 'data/courses.json';
         document.querySelector('#course-list').innerHTML = "Searching...";
-        const termUrl = document.querySelector('#term').value;
-        const url = baseScheduleUrl + termUrl;
-        return await fetch(url).then(response => response.json());
+        const data = await fetch(url).then(response => response.json());
+        this.courses = data.courses;
+        console.log(this.courses);
+        this.areas = data.areas;
+        console.log(this.areas);
+
+        // await this.fetchDataFromSheets();
+        this.displayResults();
+    }
+    
+    async fetchDataFromSheets () {
+        const url = `https://sheets.googleapis.com/v4/spreadsheets/${this.spreadsheetId}/values/courses?key=${this.key}`;
+        const data = await fetch(url, {
+                referrer: "https://unca-csci.github.io/csci-website"
+            }).then(response => response.json());
+        const keys = data.values.shift();
+        const spreadsheetCourses = {};
+        data.values.forEach(row => {
+            const item = {};
+            row.forEach((cell, i) => {
+                cell = cell === 'TRUE' ? true : cell;
+                cell = cell === 'FALSE' ? false : cell;
+                item[keys[i]] = cell;
+            }) 
+            spreadsheetCourses[item.id] = item;
+            item.areas = item.areas.split(",").map(tag => tag.trim()).filter(tag => tag !== '');
+            // return course;
+        });
+        console.log(spreadsheetCourses);
+        // this.display();
     }
 
-    async fetchAndDisplay () {
-        const courses = await this.fetchCourses();
-        this.displayResults(courses);
-    }
 
-
-    async displayResults(courseList) {
-        console.log('displaying results!');
+    async displayResults() {
         document.querySelector('#course-list').innerHTML = "";
-        // access the #results section and put the course title into it. 
-        let termUrl;
-        try {
-            termUrl = document.querySelector('#term').value;
-        } catch(e) {
-            console.log('slide changed');
-            return;
+        for (const key in this.courses) {
+            const course = this.courses[key];
+            course.id = key;
+            this.displayCourse(course);
+            // if (course.display) {
+            //     this.displayCourse(course);
+            // }
         }
-                
-        for (let i = 0; i < courseList.length; i++) {
-            const course = courseList[i];
-            if (course.Department == "CSCI") {
-                const descUrl = 'https://meteor.unca.edu/registrar/class-schedules/api/v1/courses/description/';
-                let desc = await fetch(descUrl + termUrl + course.CRN + '/').then(response => response.text());
-                desc = desc.replaceAll("\"", "");
-                desc = desc.replaceAll("\\n", "");
-                desc = desc.replaceAll("\\r", "");
-                course.Description = desc;
-                // this.addToInventory(course);
-                this.displayCourse(course);
-            }
-        }
-        // this.toJSON();
-    }
-
-    addToInventory(courseData) {
-        const code = courseData.Code.split(".")[0];
-        this.courses[code] = {
-            code: code,
-            title: courseData.Title,
-            description: courseData.Description,
-            credit_hours: courseData.Hours,
-            level: courseData.Code[5] + "00"
-        }
-    }
-
-    toJSON() {
-        console.log(JSON.stringify(this.courses));
     }
 
     displayCourse(course) {
-        // console.log(course);
-        // don't access the first instructor if no instructors are present:
-        let instructor = 'Unknown';
-        if (course.Instructors.length > 0) {
-            instructor = course.Instructors[0].Name;
-        }
-        const spaceLeft = Math.max(course.EnrollmentMax - course.EnrollmentCurrent, 0);
-        const closed = spaceLeft === 0 ? true : false;
-        const numOnWaitlist = course.WaitlistMax - course.WaitlistAvailable;
-        const startTime = new Date(course.StartTime).toLocaleTimeString([], {timeStyle: 'short'});
-        const endTime = new Date(course.EndTime).toLocaleTimeString([], {timeStyle: 'short'});
-        const meets = course.Days ? course.Days : "";
-        const location = course.Location.FullLocation ? course.Location.FullLocation + " &bull;" : "";
-        const template = `
+       const template = `
             <section class="course">
-                <h2>${course.Code}: ${course.Title}</h2>
-                <p>
-                    ${closed ? '<i class="fa-solid fa-circle-xmark"></i> Closed' : '<i class="fa-solid fa-circle-check"></i> Open'} 
-                    &bull; ${course.CRN}
-                    &bull;  
-                    ${!closed ? "Seats Available: " + spaceLeft : "Number on Waitlist " + numOnWaitlist}
-                </p>
-                <p>
-                    ${meets} ${startTime} - ${endTime} &bull; 
-                    ${ location }
-                    ${course.Hours} credit hour(s)
-                </p>
-                <p><strong>${instructor}</strong></p>
-
-                <p>${course.Description}</p>
+                <h2>${course.id}: ${course.title}</h2>
+                <p>${course.description}</p>
+                <div class="course-areas">
+                    ${course.areas ? course.areas.map(area => this.displayArea(area)).join('') : ''}
+                </div>
             </section>`;
         try {
             document.querySelector('#course-list').insertAdjacentHTML('beforeend', template);
@@ -111,7 +83,10 @@ window.CourseBrowser = class {
         }
     }
 
+    displayArea(key) {
+        return `<div class="tag">${this.areas[key]}</div>`;
+    }
 }
 
 window.browser = new CourseBrowser();
-browser.fetchAndDisplay();
+browser.fetchCourses();
