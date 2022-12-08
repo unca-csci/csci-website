@@ -5,6 +5,18 @@
     row-gap: 30px;
 }
 
+.people-detail img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 50%;
+}
+
+.people-detail img,
+.people-detail h1 {
+    align-self: center;
+    justify-self: center;
+}
+
 .person {
     display: grid;
     grid-template-columns: auto 150px;

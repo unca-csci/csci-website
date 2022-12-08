@@ -3,6 +3,7 @@ let currentPanelIndex = 1;
 let scrollPosition = 0;
 let clearSlides;
 let pageConfig;
+let pageWidth = window.innerWidth;
 
 const initPage = async () => {
     await loadPageConfig();
@@ -19,7 +20,13 @@ const initPage = async () => {
         }
     }, 100);
     
-    // window.onresize = setPosition;
+    window.onresize = () => {
+        if (window.innerWidth != pageWidth) {
+            // console.log("width is different", window.innerWidth, pageWidth);
+            pageWidth = window.innerWidth;
+            setPosition();
+        }
+    }
 };
 
 const showSection = async (page) => {
